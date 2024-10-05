@@ -14,7 +14,7 @@ point_count = 2
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
 point_count = 1
 
-[node name="Worm" type="Node2D"]
+[node name="Worm" type="Node2D" groups=["WormBody"]]
 script = ExtResource("1_va3wr")
 
 [node name="WormPath" type="Path2D" parent="."]
@@ -26,5 +26,7 @@ _curve = SubResource("Curve2D_qtxc4")
 width = 50.0
 width_profile = SubResource("Curve_hm42f")
 fill_default_color = Color(0.414063, 0.259431, 0.300101, 1)
+
+[node name="Butt" type="Node2D" parent="WormPath" groups=["WormBody"]]
 
 [node name="Gallery" parent="." instance=ExtResource("3_au4qk")]
