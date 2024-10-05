@@ -38,10 +38,15 @@ WormHead=""
 2d_physics/layer_4="Court"
 2d_physics/layer_5="Mole"
 
+[phantom_camera]
+
+tips/show_jitter_tips=false
+
 [physics]
 
 2d/default_gravity=0.0
 2d/default_gravity_vector=Vector2(0, 0)
+common/physics_interpolation=true
 
 [rendering]
 
