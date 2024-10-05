@@ -72,6 +72,6 @@ script = ExtResource("9_uljwb")
 position = Vector2(-210, 330)
 script = ExtResource("10_8ouvx")
 follow_mode = 3
-follow_targets = [null]
+follow_targets = [NodePath("../WormController")]
 zoom = Vector2(5, 5)
 tween_resource = SubResource("Resource_ywpxq")
