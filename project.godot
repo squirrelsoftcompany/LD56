@@ -22,6 +22,12 @@ PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_came
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
+
+[physics]
+
+2d/default_gravity=0.0
+2d/default_gravity_vector=Vector2(0, 0)
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
