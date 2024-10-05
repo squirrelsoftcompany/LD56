@@ -1,12 +1,13 @@
 extends Node2D
 
 var last_pos : Vector2
-var gallery : Path2D 
+var gallery : Path2D
 
 @export var width : float =50 :
 	set(value):
 		width = value
-		gallery.width = value *1.1
+		if is_instance_valid(gallery):
+			gallery.width = value *1.1
 
 func _ready():
 	gallery = $GalleryPath
