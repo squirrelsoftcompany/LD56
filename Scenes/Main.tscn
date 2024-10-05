@@ -1,0 +1,96 @@
+[gd_scene load_steps=13 format=3 uid="uid://cefracuibowbm"]
+
+[ext_resource type="Texture2D" uid="uid://bpt6ldy8jlbce" path="res://Sprites/Placeholder/sprite_ground.png" id="2_1ocxd"]
+[ext_resource type="Texture2D" uid="uid://caigtg4jc5exb" path="res://Sprites/Placeholder/sprite_stone1.png" id="3_rs3hb"]
+[ext_resource type="Texture2D" uid="uid://shwcdln4ti2w" path="res://Sprites/Placeholder/sprite_stone2.png" id="4_4fxnr"]
+[ext_resource type="Texture2D" uid="uid://c88a057eu4si2" path="res://Sprites/Placeholder/sprite_stone3.png" id="5_4mok3"]
+[ext_resource type="Texture2D" uid="uid://b5ihv4owe5wxt" path="res://Sprites/Placeholder/sprite_stone4.png" id="6_frmpu"]
+[ext_resource type="Texture2D" uid="uid://o7e7xpduj12b" path="res://Sprites/Placeholder/sprite_food.png" id="6_u1xpb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_38h78"]
+albedo_texture = ExtResource("2_1ocxd")
+
+[sub_resource type="QuadMesh" id="QuadMesh_wv8x5"]
+material = SubResource("StandardMaterial3D_38h78")
+
+[sub_resource type="Gradient" id="Gradient_0mwqu"]
+colors = PackedColorArray(0.172549, 0.141176, 0.141176, 1, 0.172549, 0.141176, 0.141176, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aws5x"]
+gradient = SubResource("Gradient_0mwqu")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1nuyb"]
+size = Vector2(1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sgfg7"]
+radius = 40.0
+
+[node name="Main" type="Node2D"]
+
+[node name="BGMesh" type="MeshInstance2D" parent="."]
+z_index = -2
+scale = Vector2(2000, 1500)
+mesh = SubResource("QuadMesh_wv8x5")
+texture = SubResource("GradientTexture2D_aws5x")
+
+[node name="SpriteStone1" type="Sprite2D" parent="."]
+position = Vector2(-666, -99)
+texture = ExtResource("3_rs3hb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SpriteStone1"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SpriteStone1/StaticBody2D"]
+position = Vector2(2, 7)
+scale = Vector2(0.995457, 0.912566)
+polygon = PackedVector2Array(-34.1552, 65.7487, 60.2738, 60.2696, 69.3149, 36.1618, 55.251, -52.5989, -23.105, -84.3775, -41.1871, -66.8445, -64.2921, -33.9701, -76.3468, 3.28744, -74.3377, 40.545)
+
+[node name="SpriteStone2" type="Sprite2D" parent="."]
+position = Vector2(560, -362)
+texture = ExtResource("4_4fxnr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SpriteStone2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SpriteStone2/StaticBody2D"]
+polygon = PackedVector2Array(-55, 57, 75, 50, 72, 9, 40, -44, 11, -58, -54, -22, -76, 35)
+
+[node name="SpriteStone3" type="Sprite2D" parent="."]
+position = Vector2(461, 373)
+texture = ExtResource("5_4mok3")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SpriteStone3"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SpriteStone3/StaticBody2D"]
+polygon = PackedVector2Array(-31, 66, -3, 82, 30, 88, 52, 58, 46, -11, 26, -68, 18, -84, -16, -88, -33, -70, -50, -4)
+
+[node name="SpriteStone4" type="Sprite2D" parent="."]
+position = Vector2(-332, 286)
+texture = ExtResource("6_frmpu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SpriteStone4"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SpriteStone4/StaticBody2D"]
+polygon = PackedVector2Array(-75, -27, 7, -81, 50, -57, 73, 9, 72, 62, 1, 83, -47, 75)
+
+[node name="SpriteRocks" type="Sprite2D" parent="."]
+z_index = -1
+texture_repeat = 2
+position = Vector2(0, 775)
+texture = ExtResource("2_1ocxd")
+region_enabled = true
+region_rect = Rect2(0, 0, 2000, 100)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SpriteRocks"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpriteRocks/StaticBody2D"]
+scale = Vector2(2000, 100)
+shape = SubResource("RectangleShape2D_1nuyb")
+
+[node name="SpriteFood" type="Sprite2D" parent="."]
+position = Vector2(-293, -368)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_u1xpb")
+
+[node name="Area2D" type="Area2D" parent="SpriteFood"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpriteFood/Area2D"]
+shape = SubResource("CircleShape2D_sgfg7")
