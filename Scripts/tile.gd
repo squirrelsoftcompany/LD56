@@ -1,7 +1,11 @@
 class_name Tile
 extends Node2D
 
-var stone_scene = preload("res://Scenes/Map/Elements/stone_1.tscn")
+var stone_scenes = [preload("res://Scenes/Map/Elements/stone_1.tscn"),\
+					preload("res://Scenes/Map/Elements/stone_2.tscn"),\
+					preload("res://Scenes/Map/Elements/stone_3.tscn"),\
+					preload("res://Scenes/Map/Elements/stone_4.tscn")]
+
 var food_scene = preload("res://Scenes/Map/Elements/food.tscn")
 var _mesh : MeshInstance2D
 
@@ -30,7 +34,8 @@ func _generate_tile_env() -> void:
 	# Generate some stones
 	var _stone_count = MapGenerator.rng.randi_range(5,10)
 	for i in range(_stone_count):
-		var _stone = stone_scene.instantiate()
+		var _stone_index = MapGenerator.rng.randi_range(0,stone_scenes.size()-1)
+		var _stone = stone_scenes[_stone_index].instantiate()
 		add_child(_stone)
 		_stone.position = MapGenerator._random_stone_pos(self)
 		MapGenerator.stones.push_back(_stone)
