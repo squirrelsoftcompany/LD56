@@ -36,7 +36,7 @@ rotation = 1.5708
 texture = ExtResource("3_g5y31")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-physics_interpolation_mode = 2
+physics_interpolation_mode = 1
 position = Vector2(-235, 338)
 zoom = Vector2(5, 5)
 
