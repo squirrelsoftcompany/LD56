@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://batwp82b155js"]
+[gd_scene load_steps=6 format=3 uid="uid://ctey2y2gj1nsf"]
 
 [ext_resource type="Script" path="res://Scripts/worm.gd" id="1_va3wr"]
 [ext_resource type="Script" path="res://addons/linepath2d/linepath2d.gd" id="2_bub8w"]
-[ext_resource type="PackedScene" uid="uid://vn8rbpcap1xu" path="res://Scenes/Gallery.tscn" id="3_au4qk"]
+[ext_resource type="PackedScene" path="res://Scenes/Gallery.tscn" id="3_au4qk"]
 
 [sub_resource type="Curve2D" id="Curve2D_qtxc4"]
 _data = {

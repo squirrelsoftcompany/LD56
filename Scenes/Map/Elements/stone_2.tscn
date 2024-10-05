@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgx7xe88hy363"]
+
+[ext_resource type="Texture2D" uid="uid://shwcdln4ti2w" path="res://Sprites/Placeholder/sprite_stone2.png" id="1_lygcs"]
+
+[node name="SpriteStone2" type="Sprite2D"]
+texture = ExtResource("1_lygcs")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-55, 57, 75, 50, 72, 9, 40, -44, 11, -58, -54, -22, -76, 35)

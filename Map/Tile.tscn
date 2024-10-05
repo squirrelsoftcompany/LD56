@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://buefhu8ssv6c1"]
 
-[ext_resource type="Texture2D" uid="uid://bpt6ldy8jlbce" path="res://Sprites/Placeholder/sprite_ground.png" id="1_jmuwe"]
+[ext_resource type="Texture2D" uid="uid://bpt6ldy8jlbce" path="res://Sprites/Placeholder/sprite_rocks.png" id="1_jmuwe"]
 [ext_resource type="Script" path="res://Scripts/tile.gd" id="1_tbkde"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ljril"]

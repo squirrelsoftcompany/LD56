@@ -8,7 +8,7 @@ var width : float :
 		gallery.width = value
 		width = value
 
-@export var start_width : float =50 
+@export var start_width : float = 50
 @export var length : float = 300
 
 func _ready():

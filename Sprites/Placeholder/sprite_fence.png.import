@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpt6ldy8jlbce"
-path="res://.godot/imported/sprite_ground.png-353b24f4da0391aa4c417b480b6625ef.ctex"
+uid="uid://bwuqet6a2a0oh"
+path="res://.godot/imported/sprite_fence.png-4784ca01fd8bb89589911c9daf73657b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Placeholder/sprite_ground.png"
-dest_files=["res://.godot/imported/sprite_ground.png-353b24f4da0391aa4c417b480b6625ef.ctex"]
+source_file="res://Sprites/Placeholder/sprite_fence.png"
+dest_files=["res://.godot/imported/sprite_fence.png-4784ca01fd8bb89589911c9daf73657b.ctex"]
 
 [params]
 
