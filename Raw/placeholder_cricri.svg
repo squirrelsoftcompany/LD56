@@ -24,9 +24,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.52724989"
-     inkscape:cx="-13.276437"
-     inkscape:cy="481.74501"
+     inkscape:zoom="2.1089996"
+     inkscape:cx="120.91041"
+     inkscape:cy="696.53879"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="1912"
@@ -103,5 +103,44 @@
        cy="141.05594"
        r="10.583333"
        inkscape:label="food" />
+    <rect
+       style="fill:#6c452e;fill-opacity:1;stroke:none;stroke-width:0.178128;stroke-opacity:1;stop-color:#000000"
+       id="rect1820"
+       width="39.6875"
+       height="6.3870964"
+       x="22.779951"
+       y="175.25739"
+       ry="0.19116396"
+       inkscape:export-filename="..\Sprites\Placeholder\sprite_exterieur.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#6c452e;fill-opacity:1;stroke:none;stroke-width:0.178128;stroke-opacity:1;stop-color:#000000"
+       id="rect1884"
+       width="39.6875"
+       height="6.3870964"
+       x="22.779951"
+       y="191.66133"
+       ry="0.19116396" />
+    <path
+       style="fill:#594b41;fill-opacity:1;stroke:none;stroke-width:0.151247;stroke-opacity:1;stop-color:#000000"
+       d="m 24.905434,202.14743 -1.116917,-31.87984 4.724173,-7.80766 4.489272,7.41944 -1.57825,32.26806 z"
+       id="path1034"
+       sodipodi:nodetypes="cccccc" />
+    <path
+       style="fill:#594b41;fill-opacity:1;stroke:none;stroke-width:0.151247;stroke-opacity:1;stop-color:#000000"
+       d="m 33.745012,202.14743 0.04856,-31.87984 4.141433,-7.80766 4.197902,7.41944 -2.986536,32.26806 z"
+       id="path1036"
+       sodipodi:nodetypes="cccccc" />
+    <path
+       style="fill:#594b41;fill-opacity:1;stroke:none;stroke-width:0.151247;stroke-opacity:1;stop-color:#000000"
+       d="m 44.429931,202.14743 -1.796779,-31.87984 4.724172,-7.80766 4.489272,7.41944 -1.092633,32.26806 z"
+       id="path1038"
+       sodipodi:nodetypes="cccccc" />
+    <path
+       style="fill:#594b41;fill-opacity:1;stroke:none;stroke-width:0.151247;stroke-opacity:1;stop-color:#000000"
+       d="m 53.083223,202.14743 v -31.87984 l 4.106084,-7.80766 3.596478,7.41944 0.0444,32.26806 z"
+       id="path1040"
+       sodipodi:nodetypes="cccccc" />
   </g>
 </svg>
