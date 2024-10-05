@@ -1,6 +1,10 @@
 extends CharacterBody2D
 
 
+@export var max_rotation_speed_in_degrees := 40 # deg/s
+@export var max_forward_speed := 40 # unit/s
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -15,9 +19,7 @@ func _process(delta: float) -> void:
 	var cosinus := forward.dot(mouse_direction)
 	var sinus := forward.cross(mouse_direction)
 	var rotation_scale : float = sinus if cosinus >= 0.0 else sign(sinus)
-	var max_rotation_speed := deg_to_rad(40) # deg/s
-	rotation += delta * rotation_scale * max_rotation_speed
+	rotation += delta * rotation_scale * deg_to_rad(max_rotation_speed_in_degrees)
 	# compute velocity
-	var max_forward_speed := 40 # unit/s
 	velocity = forward * max_forward_speed
 	move_and_slide()
