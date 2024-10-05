@@ -12,8 +12,8 @@ func _ready():
 	gallery = $GalleryPath
 	last_pos = global_position
 	gallery._curve = Curve2D.new() # do not remove the underscore !!
-	gallery.curve.add_point(Vector2.ZERO)
-	gallery.curve.add_point(Vector2.ZERO)
+	gallery.curve.add_point(last_pos)
+	gallery.curve.add_point(last_pos)
 	gallery.cap_end_cap = 2
 	gallery.cap_begin_cap = 2
 	gallery.width = width*1.1
