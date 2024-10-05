@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=3 uid="uid://buefhu8ssv6c1"]
+
+[ext_resource type="Texture2D" uid="uid://bpt6ldy8jlbce" path="res://Sprites/Placeholder/sprite_ground.png" id="1_jmuwe"]
+[ext_resource type="Script" path="res://Map/tile.gd" id="1_tbkde"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ljril"]
+albedo_texture = ExtResource("1_jmuwe")
+
+[sub_resource type="QuadMesh" id="QuadMesh_23k47"]
+material = SubResource("StandardMaterial3D_ljril")
+
+[sub_resource type="Gradient" id="Gradient_28a45"]
+colors = PackedColorArray(0.172549, 0.141176, 0.141176, 1, 0.172549, 0.141176, 0.141176, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5whyq"]
+gradient = SubResource("Gradient_28a45")
+
+[node name="Tile" type="Node2D"]
+script = ExtResource("1_tbkde")
+
+[node name="BGMesh" type="MeshInstance2D" parent="."]
+z_index = -2
+scale = Vector2(2000, 1500)
+mesh = SubResource("QuadMesh_23k47")
+texture = SubResource("GradientTexture2D_5whyq")

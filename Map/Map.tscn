@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://png6f8xxnfrf"]
+
+[ext_resource type="Script" path="res://Map/map.gd" id="1_33e5a"]
+[ext_resource type="PackedScene" uid="uid://buefhu8ssv6c1" path="res://Map/Tile.tscn" id="1_rayg0"]
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_33e5a")
+loop_distance = 800
+
+[node name="Tile" parent="." instance=ExtResource("1_rayg0")]
+
+[node name="Tile2" parent="." instance=ExtResource("1_rayg0")]
+position = Vector2(2000, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(1e-05, 1e-05)
+zoom = Vector2(0.05, 0.05)
