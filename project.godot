@@ -28,6 +28,7 @@ enabled=PackedStringArray("res://addons/debugdraw2d/plugin.cfg", "res://addons/l
 [global_group]
 
 WormBody=""
+WormHead=""
 
 [layer_names]
 

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bt41pt4ehgw8x"]
+
+[ext_resource type="Texture2D" uid="uid://cgjrknw2cpf5v" path="res://Sprites/Placeholder/sprite_mole.png" id="1_74dby"]
+[ext_resource type="Script" path="res://Scripts/mole_controller.gd" id="1_ng6xw"]
+[ext_resource type="PackedScene" uid="uid://vn8rbpcap1xu" path="res://Scenes/MovingElement/Gallery.tscn" id="3_x6277"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5mwwf"]
+radius = 70.0
+height = 400.0
+
+[node name="MoleController" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 12
+script = ExtResource("1_ng6xw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-100, 0)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_5mwwf")
+
+[node name="SpriteMole" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-100, 0)
+rotation = 1.5708
+texture = ExtResource("1_74dby")
+
+[node name="Gallery" parent="." instance=ExtResource("3_x6277")]
+width = 220.0

@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ltyw"]
 
-[node name="WormController" type="CharacterBody2D"]
+[node name="WormController" type="CharacterBody2D" groups=["WormHead"]]
 position = Vector2(-210, 330)
 collision_mask = 2
 floor_constant_speed = true

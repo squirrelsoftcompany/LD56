@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cefracuibowbm"]
+[gd_scene load_steps=19 format=3 uid="uid://cefracuibowbm"]
 
 [ext_resource type="Texture2D" uid="uid://bpt6ldy8jlbce" path="res://Sprites/Placeholder/sprite_rocks.png" id="2_1ocxd"]
 [ext_resource type="PackedScene" uid="uid://cxx38earkuw5l" path="res://Scenes/Map/Elements/stone_1.tscn" id="2_o346k"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="9_uljwb"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="10_8ouvx"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="11_4vje4"]
+[ext_resource type="PackedScene" uid="uid://bt41pt4ehgw8x" path="res://Scenes/MovingElement/mole_controller.tscn" id="13_x7ciq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_38h78"]
 albedo_texture = ExtResource("2_1ocxd")
@@ -75,3 +76,6 @@ follow_mode = 3
 follow_targets = [NodePath("../WormController")]
 zoom = Vector2(5, 5)
 tween_resource = SubResource("Resource_ywpxq")
+
+[node name="MoleController" parent="." instance=ExtResource("13_x7ciq")]
+position = Vector2(618, -94)
