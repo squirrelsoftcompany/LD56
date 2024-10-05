@@ -9,7 +9,10 @@ var stone_scenes = [preload("res://Scenes/Map/Elements/stone_1.tscn"),\
 var food_scene = preload("res://Scenes/Map/Elements/food.tscn")
 var _mesh : MeshInstance2D
 
-@export var food_timer_max = 10
+@export var initial_stone_count_min_max : Vector2 = Vector2(5,10)
+@export var initial_food_count_min_max:  Vector2 = Vector2(80,100)
+
+@export var food_timer_spawn = 10
 var food_timer_counter = 10
 
 # Called when the node enters the scene tree for the first time.
@@ -24,7 +27,7 @@ func _process(delta: float) -> void:
 		food_timer_counter -= delta
 	else:
 		_generate_food()
-		food_timer_counter = food_timer_max
+		food_timer_counter = food_timer_spawn
 	pass
 	
 func get_tile_size()-> Vector2:
@@ -32,7 +35,7 @@ func get_tile_size()-> Vector2:
 
 func _generate_tile_env() -> void:
 	# Generate some stones
-	var _stone_count = MapGenerator.rng.randi_range(5,10)
+	var _stone_count = MapGenerator.rng.randi_range(initial_stone_count_min_max.x,initial_stone_count_min_max.y)
 	for i in range(_stone_count):
 		var _stone_index = MapGenerator.rng.randi_range(0,stone_scenes.size()-1)
 		var _stone = stone_scenes[_stone_index].instantiate()
@@ -41,7 +44,7 @@ func _generate_tile_env() -> void:
 		MapGenerator.stones.push_back(_stone)
 		
 	# Generate some foods
-	var _food_count = MapGenerator.rng.randi_range(80,100)
+	var _food_count = MapGenerator.rng.randi_range(initial_food_count_min_max.x,initial_food_count_min_max.y)
 	for i in range(_food_count):
 		var _food = food_scene.instantiate()
 		add_child(_food)
