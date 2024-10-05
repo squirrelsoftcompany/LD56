@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://batwp82b155js"]
+
+[ext_resource type="Script" path="res://Scripts/worm.gd" id="1_va3wr"]
+[ext_resource type="Script" path="res://addons/linepath2d/linepath2d.gd" id="2_bub8w"]
+[ext_resource type="PackedScene" uid="uid://vn8rbpcap1xu" path="res://Scenes/Gallery.tscn" id="3_au4qk"]
+
+[sub_resource type="Curve2D" id="Curve2D_qtxc4"]
+_data = {
+"points": PackedVector2Array(0, 0, 400, 0, 0, 0, -400, 0, 0, 0, 400, 400)
+}
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_hm42f"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[node name="Worm" type="Node2D"]
+script = ExtResource("1_va3wr")
+
+[node name="WormPath" type="Path2D" parent="."]
+top_level = true
+z_index = 10
+curve = SubResource("Curve2D_qtxc4")
+script = ExtResource("2_bub8w")
+_curve = SubResource("Curve2D_qtxc4")
+width = 50.0
+width_profile = SubResource("Curve_hm42f")
+fill_default_color = Color(0.414063, 0.259431, 0.300101, 1)
+
+[node name="Gallery" parent="." instance=ExtResource("3_au4qk")]

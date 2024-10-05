@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://vn8rbpcap1xu"]
+
+[ext_resource type="Script" path="res://Scripts/gallery.gd" id="1_d84on"]
+[ext_resource type="Script" path="res://addons/linepath2d/linepath2d.gd" id="1_l3hat"]
+
+[sub_resource type="Curve2D" id="Curve2D_nequj"]
+_data = {
+"points": PackedVector2Array(0, 0, 400, 0, 0, 0, -400, 0, 0, 0, 400, 400)
+}
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_hm42f"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[node name="Gallery" type="Node2D"]
+script = ExtResource("1_d84on")
+
+[node name="GalleryPath" type="Path2D" parent="."]
+top_level = true
+curve = SubResource("Curve2D_nequj")
+script = ExtResource("1_l3hat")
+_curve = SubResource("Curve2D_nequj")
+width = 50.0
+width_profile = SubResource("Curve_hm42f")
+fill_default_color = Color(0.175781, 0.0606084, 0, 1)
