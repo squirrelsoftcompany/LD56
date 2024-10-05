@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b25u3e57lesyp"]
+[gd_scene load_steps=4 format=3 uid="uid://b25u3e57lesyp"]
 
 [ext_resource type="Texture2D" uid="uid://bpt6ldy8jlbce" path="res://Sprites/Placeholder/sprite_rocks.png" id="1_4hu6n"]
+[ext_resource type="Script" path="res://Scripts/SyncSpriteRegionWithCollision.gd" id="2_kfmw2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1nuyb"]
 size = Vector2(1, 1)
@@ -12,10 +13,10 @@ position = Vector2(0, 775)
 texture = ExtResource("1_4hu6n")
 region_enabled = true
 region_rect = Rect2(0, 0, 2000, 100)
+script = ExtResource("2_kfmw2")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 2
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-scale = Vector2(2000, 100)
 shape = SubResource("RectangleShape2D_1nuyb")

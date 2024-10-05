@@ -31,8 +31,10 @@ WormBody=""
 [layer_names]
 
 2d_physics/layer_1="Worm"
-2d_physics/layer_2="Obstacle"
-2d_physics/layer_3="Mole"
+2d_physics/layer_2="Stone"
+2d_physics/layer_3="Rocks"
+2d_physics/layer_4="Court"
+2d_physics/layer_5="Mole"
 
 [physics]
 
