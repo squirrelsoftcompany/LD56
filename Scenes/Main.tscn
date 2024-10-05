@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cefracuibowbm"]
+[gd_scene load_steps=21 format=3 uid="uid://cefracuibowbm"]
 
 [ext_resource type="Texture2D" uid="uid://bpt6ldy8jlbce" path="res://Sprites/Placeholder/sprite_ground.png" id="2_1ocxd"]
 [ext_resource type="Texture2D" uid="uid://caigtg4jc5exb" path="res://Sprites/Placeholder/sprite_stone1.png" id="3_rs3hb"]
@@ -7,6 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://b5ihv4owe5wxt" path="res://Sprites/Placeholder/sprite_stone4.png" id="6_frmpu"]
 [ext_resource type="Texture2D" uid="uid://o7e7xpduj12b" path="res://Sprites/Placeholder/sprite_food.png" id="6_u1xpb"]
 [ext_resource type="Texture2D" uid="uid://bwuqet6a2a0oh" path="res://Sprites/Placeholder/sprite_exterieur.png" id="7_mqaw2"]
+[ext_resource type="Script" path="res://Scenes/worm_head.gd" id="8_1uaqr"]
+[ext_resource type="Texture2D" uid="uid://djbdij674qcyw" path="res://Sprites/Placeholder/sprite_worm_head.png" id="8_a8gyp"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="9_uljwb"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="10_8ouvx"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="11_4vje4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_38h78"]
 albedo_texture = ExtResource("2_1ocxd")
@@ -25,6 +30,15 @@ size = Vector2(1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sgfg7"]
 radius = 40.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ltyw"]
+height = 60.0
+
+[sub_resource type="Resource" id="Resource_ywpxq"]
+script = ExtResource("11_4vje4")
+duration = 1.0
+transition = 0
+ease = 2
 
 [node name="Main" type="Node2D"]
 
@@ -102,3 +116,34 @@ position = Vector2(0, -820)
 texture = ExtResource("7_mqaw2")
 region_enabled = true
 region_rect = Rect2(0, 0, 2000, 150)
+
+[node name="WormHead" type="CharacterBody2D" parent="."]
+position = Vector2(-235, 338)
+floor_constant_speed = true
+script = ExtResource("8_1uaqr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WormHead"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_8ltyw")
+
+[node name="Sprite2D" type="Sprite2D" parent="WormHead"]
+rotation = 1.5708
+texture = ExtResource("8_a8gyp")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 2
+position = Vector2(-235, 338)
+zoom = Vector2(5, 5)
+limit_top = -900
+limit_bottom = 800
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+script = ExtResource("9_uljwb")
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_targets")]
+position = Vector2(-235, 338)
+script = ExtResource("10_8ouvx")
+follow_mode = 3
+follow_targets = [NodePath("../WormHead")]
+zoom = Vector2(5, 5)
+tween_resource = SubResource("Resource_ywpxq")
