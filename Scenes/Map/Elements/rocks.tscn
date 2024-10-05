@@ -14,6 +14,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 2000, 100)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 scale = Vector2(2000, 100)

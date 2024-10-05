@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2qpkirs2uam5"]
+
+[ext_resource type="Script" path="res://Scripts/worm_controller.gd" id="1_44qbw"]
+[ext_resource type="PackedScene" uid="uid://ctey2y2gj1nsf" path="res://Scenes/MovingElement/Worm.tscn" id="2_oe58f"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ltyw"]
+
+[node name="WormController" type="CharacterBody2D"]
+position = Vector2(-210, 330)
+collision_mask = 2
+floor_constant_speed = true
+script = ExtResource("1_44qbw")
+max_rotation_speed_in_degrees = 60
+max_forward_speed = 50
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7.5, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_8ltyw")
+
+[node name="Worm" parent="." instance=ExtResource("2_oe58f")]
+start_width = 25.0
+length = 80.0

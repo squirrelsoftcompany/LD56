@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bj0icu7k2unli"]
 
 [ext_resource type="PackedScene" uid="uid://png6f8xxnfrf" path="res://Map/Map.tscn" id="1_ha21n"]
-[ext_resource type="Script" path="res://Scripts/worm_head.gd" id="2_whkh7"]
+[ext_resource type="Script" path="res://Scripts/worm_controller.gd" id="2_whkh7"]
 [ext_resource type="Texture2D" uid="uid://djbdij674qcyw" path="res://Sprites/Placeholder/sprite_worm_head.png" id="3_g5y31"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_bbekb"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_5migg"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bwuqet6a2a0oh" path="res://Sprites/Placeholder/sprite_fence.png" id="1_ox4w6"]
 
-[node name="SpriteExterieur" type="Sprite2D"]
+[node name="SpriteCourt" type="Sprite2D"]
 texture_repeat = 2
 position = Vector2(0, -820)
 texture = ExtResource("1_ox4w6")

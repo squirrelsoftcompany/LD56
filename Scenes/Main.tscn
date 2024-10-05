@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cefracuibowbm"]
+[gd_scene load_steps=18 format=3 uid="uid://cefracuibowbm"]
 
 [ext_resource type="Texture2D" uid="uid://bpt6ldy8jlbce" path="res://Sprites/Placeholder/sprite_rocks.png" id="2_1ocxd"]
 [ext_resource type="PackedScene" uid="uid://cxx38earkuw5l" path="res://Scenes/Map/Elements/stone_1.tscn" id="2_o346k"]
@@ -8,11 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://b25u3e57lesyp" path="res://Scenes/Map/Elements/rocks.tscn" id="6_fdd4a"]
 [ext_resource type="PackedScene" uid="uid://b7aptw0r7e8sl" path="res://Scenes/Map/Elements/food.tscn" id="6_we4o5"]
 [ext_resource type="PackedScene" uid="uid://bi5inu67rib6r" path="res://Scenes/Map/Elements/court.tscn" id="7_a2bm4"]
-[ext_resource type="Script" path="res://Scripts/worm_head.gd" id="8_1uaqr"]
+[ext_resource type="PackedScene" uid="uid://c2qpkirs2uam5" path="res://Scenes/MovingElement/worm_controller.tscn" id="9_ixjsp"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="9_uljwb"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="10_8ouvx"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="11_4vje4"]
-[ext_resource type="PackedScene" uid="uid://ctey2y2gj1nsf" path="res://Scenes/Worm.tscn" id="14_1wgdv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_38h78"]
 albedo_texture = ExtResource("2_1ocxd")
@@ -25,8 +24,6 @@ colors = PackedColorArray(0.172549, 0.141176, 0.141176, 1, 0.172549, 0.141176, 0
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_aws5x"]
 gradient = SubResource("Gradient_0mwqu")
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ltyw"]
 
 [sub_resource type="Resource" id="Resource_ywpxq"]
 script = ExtResource("11_4vje4")
@@ -59,23 +56,9 @@ position = Vector2(-332, 286)
 [node name="SpriteFood" parent="." instance=ExtResource("6_we4o5")]
 position = Vector2(-293, -368)
 
-[node name="SpriteExterieur" parent="." instance=ExtResource("7_a2bm4")]
+[node name="SpriteCourt" parent="." instance=ExtResource("7_a2bm4")]
 
-[node name="WormHead" type="CharacterBody2D" parent="."]
-position = Vector2(-210, 330)
-floor_constant_speed = true
-script = ExtResource("8_1uaqr")
-max_rotation_speed_in_degrees = 60
-max_forward_speed = 50
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WormHead"]
-position = Vector2(-7.5, 0)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_8ltyw")
-
-[node name="Worm" parent="WormHead" instance=ExtResource("14_1wgdv")]
-start_width = 25.0
-length = 80.0
+[node name="WormController" parent="." instance=ExtResource("9_ixjsp")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
@@ -89,6 +72,6 @@ script = ExtResource("9_uljwb")
 position = Vector2(-210, 330)
 script = ExtResource("10_8ouvx")
 follow_mode = 3
-follow_targets = [NodePath("../WormHead")]
+follow_targets = [null]
 zoom = Vector2(5, 5)
 tween_resource = SubResource("Resource_ywpxq")

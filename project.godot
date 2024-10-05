@@ -28,6 +28,12 @@ enabled=PackedStringArray("res://addons/linepath2d/plugin.cfg", "res://addons/ph
 
 WormBody=""
 
+[layer_names]
+
+2d_physics/layer_1="Worm"
+2d_physics/layer_2="Obstacle"
+2d_physics/layer_3="Mole"
+
 [physics]
 
 2d/default_gravity=0.0
