@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b5ihv4owe5wxt" path="res://Sprites/Placeholder/sprite_stone4.png" id="6_frmpu"]
 [ext_resource type="Texture2D" uid="uid://o7e7xpduj12b" path="res://Sprites/Placeholder/sprite_food.png" id="6_u1xpb"]
 [ext_resource type="Texture2D" uid="uid://bwuqet6a2a0oh" path="res://Sprites/Placeholder/sprite_exterieur.png" id="7_mqaw2"]
-[ext_resource type="Script" path="res://Scenes/worm_head.gd" id="8_1uaqr"]
+[ext_resource type="Script" path="res://Scripts/worm_head.gd" id="8_1uaqr"]
 [ext_resource type="Texture2D" uid="uid://djbdij674qcyw" path="res://Sprites/Placeholder/sprite_worm_head.png" id="8_a8gyp"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="9_uljwb"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="10_8ouvx"]

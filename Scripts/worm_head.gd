@@ -21,5 +21,6 @@ func _process(delta: float) -> void:
 	var rotation_scale : float = sinus if cosinus >= 0.0 else sign(sinus)
 	rotation += delta * rotation_scale * deg_to_rad(max_rotation_speed_in_degrees)
 	# compute velocity
-	velocity = forward * max_forward_speed
+	var neo_forward := Vector2(cos(rotation), sin(rotation))
+	velocity = neo_forward * max_forward_speed
 	move_and_slide()
