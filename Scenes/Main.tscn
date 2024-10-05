@@ -121,6 +121,8 @@ region_rect = Rect2(0, 0, 2000, 150)
 position = Vector2(-235, 338)
 floor_constant_speed = true
 script = ExtResource("8_1uaqr")
+max_rotation_speed_in_degrees = 60
+max_forward_speed = 50
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WormHead"]
 rotation = 1.5708
@@ -131,11 +133,9 @@ rotation = 1.5708
 texture = ExtResource("8_a8gyp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-physics_interpolation_mode = 2
+physics_interpolation_mode = 1
 position = Vector2(-235, 338)
 zoom = Vector2(5, 5)
-limit_top = -900
-limit_bottom = 800
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 script = ExtResource("9_uljwb")
