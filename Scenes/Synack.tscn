@@ -1,3 +1,52 @@
-[gd_scene format=3 uid="uid://bj0icu7k2unli"]
+[gd_scene load_steps=9 format=3 uid="uid://bj0icu7k2unli"]
+
+[ext_resource type="PackedScene" uid="uid://png6f8xxnfrf" path="res://Map/Map.tscn" id="1_ha21n"]
+[ext_resource type="Script" path="res://Scripts/worm_head.gd" id="2_whkh7"]
+[ext_resource type="Texture2D" uid="uid://djbdij674qcyw" path="res://Sprites/Placeholder/sprite_worm_head.png" id="3_g5y31"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_bbekb"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_5migg"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_axjte"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3xh4m"]
+height = 60.0
+
+[sub_resource type="Resource" id="Resource_ir6au"]
+script = ExtResource("6_axjte")
+duration = 1.0
+transition = 0
+ease = 2
 
 [node name="Synack" type="Node2D"]
+
+[node name="Map" parent="." instance=ExtResource("1_ha21n")]
+
+[node name="WormHead" type="CharacterBody2D" parent="."]
+position = Vector2(-235, 338)
+floor_constant_speed = true
+script = ExtResource("2_whkh7")
+max_rotation_speed_in_degrees = 60
+max_forward_speed = 50
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WormHead"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_3xh4m")
+
+[node name="Sprite2D" type="Sprite2D" parent="WormHead"]
+rotation = 1.5708
+texture = ExtResource("3_g5y31")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 2
+position = Vector2(-235, 338)
+zoom = Vector2(5, 5)
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+script = ExtResource("4_bbekb")
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_targets")]
+position = Vector2(-235, 338)
+script = ExtResource("5_5migg")
+follow_mode = 3
+follow_targets = [NodePath("../WormHead")]
+zoom = Vector2(5, 5)
+tween_resource = SubResource("Resource_ir6au")

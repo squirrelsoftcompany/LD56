@@ -23,8 +23,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# DEBUG SECTION 
-	_player_position = get_global_mouse_position()
-	print("Player position : " + str(_player_position))
+	_player_position = get_global_mouse_position() # WE SHOULD USE THE WORM POSITION BUT FOR NOW THE MOUSE GLOBAL POSITION IS OK
 	# END OF DEBUG SECTION
 	
 	# If the player is near the border of the center tile we move the side tile to the correct position

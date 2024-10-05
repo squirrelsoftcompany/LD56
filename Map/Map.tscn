@@ -11,7 +11,3 @@ loop_distance = 800
 
 [node name="Tile2" parent="." instance=ExtResource("1_rayg0")]
 position = Vector2(2000, 0)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-scale = Vector2(1e-05, 1e-05)
-zoom = Vector2(0.05, 0.05)
