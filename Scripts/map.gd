@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 		_side_tile.position.x = _center_tile.position.x - _center_tile.get_tile_size().x
 		
 	# If the player is deep inside the side tile we swap the side tile and the center tile
-	if (_player_position.x - _side_tile.position.x)  < loop_distance/2:
+	if (_player_position.x - _side_tile.position.x)  < loop_distance/2.0:
 		var tmp_tile = _center_tile
 		_center_tile = _side_tile
 		_side_tile = tmp_tile

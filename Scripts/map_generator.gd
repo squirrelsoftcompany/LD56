@@ -10,11 +10,6 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _random_stone_pos(tile : Tile) -> Vector2:
 	var _valid = false
 	var _stone_radius = 20 #Should be transform to a custome variable
