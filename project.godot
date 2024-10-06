@@ -34,6 +34,7 @@ Food=""
 AntHives="for distace calculation (ex: music...)"
 Damager="damaging ?"
 Stone=""
+FOVMask=""
 
 [layer_names]
 

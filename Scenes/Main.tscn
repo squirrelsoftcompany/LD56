@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c8vq54nywemk5" path="res://Scenes/Camera/fov.tscn" id="1_c7ibn"]
 [ext_resource type="PackedScene" uid="uid://png6f8xxnfrf" path="res://Map/Map.tscn" id="7_drgsk"]
-[ext_resource type="PackedScene" uid="uid://bmaxtsl24lset" path="res://Scenes/SoundController.tscn" id="8_686k5"]
+[ext_resource type="PackedScene" path="res://Scenes/SoundController.tscn" id="8_686k5"]
 [ext_resource type="PackedScene" uid="uid://c2qpkirs2uam5" path="res://Scenes/MovingElement/worm_controller.tscn" id="9_ixjsp"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="9_uljwb"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="10_8ouvx"]
@@ -47,5 +47,5 @@ position = Vector2(618, -94)
 
 [node name="FOV" parent="." instance=ExtResource("1_c7ibn")]
 
-[node name="FOV_Mask_VP" parent="." instance=ExtResource("15_iuhcr")]
+[node name="FOV_Mask_VP" parent="." groups=["FOVMask"] instance=ExtResource("15_iuhcr")]
 canvas_cull_mask = 4293918722
