@@ -1,14 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://cefracuibowbm"]
+[gd_scene load_steps=10 format=3 uid="uid://cefracuibowbm"]
 
 [ext_resource type="PackedScene" uid="uid://c8vq54nywemk5" path="res://Scenes/Camera/fov.tscn" id="1_c7ibn"]
-[ext_resource type="Texture2D" uid="uid://bpt6ldy8jlbce" path="res://Sprites/Placeholder/sprite_rocks.png" id="2_1ocxd"]
-[ext_resource type="PackedScene" uid="uid://cxx38earkuw5l" path="res://Scenes/Map/Elements/stone_1.tscn" id="2_o346k"]
-[ext_resource type="PackedScene" uid="uid://bgx7xe88hy363" path="res://Scenes/Map/Elements/stone_2.tscn" id="3_l8dt3"]
-[ext_resource type="PackedScene" uid="uid://ltoettmlgsjj" path="res://Scenes/Map/Elements/stone_3.tscn" id="4_7yr7x"]
-[ext_resource type="PackedScene" uid="uid://cxylqd85w5i1m" path="res://Scenes/Map/Elements/stone_4.tscn" id="5_wx8ee"]
-[ext_resource type="PackedScene" uid="uid://b25u3e57lesyp" path="res://Scenes/Map/Elements/rocks.tscn" id="6_fdd4a"]
-[ext_resource type="PackedScene" uid="uid://b7aptw0r7e8sl" path="res://Scenes/Map/Elements/food.tscn" id="6_we4o5"]
-[ext_resource type="PackedScene" uid="uid://bi5inu67rib6r" path="res://Scenes/Map/Elements/court.tscn" id="7_a2bm4"]
+[ext_resource type="PackedScene" uid="uid://png6f8xxnfrf" path="res://Map/Map.tscn" id="7_drgsk"]
+[ext_resource type="PackedScene" uid="uid://bmaxtsl24lset" path="res://Scenes/SoundController.tscn" id="8_686k5"]
 [ext_resource type="PackedScene" uid="uid://c2qpkirs2uam5" path="res://Scenes/MovingElement/worm_controller.tscn" id="9_ixjsp"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="9_uljwb"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="10_8ouvx"]
@@ -20,18 +14,6 @@ script = ExtResource("11_4vje4")
 duration = 1.0
 transition = 0
 ease = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_38h78"]
-albedo_texture = ExtResource("2_1ocxd")
-
-[sub_resource type="QuadMesh" id="QuadMesh_wv8x5"]
-material = SubResource("StandardMaterial3D_38h78")
-
-[sub_resource type="Gradient" id="Gradient_0mwqu"]
-colors = PackedColorArray(0.172549, 0.141176, 0.141176, 1, 0.172549, 0.141176, 0.141176, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_aws5x"]
-gradient = SubResource("Gradient_0mwqu")
 
 [node name="Main" type="Node2D"]
 
@@ -54,34 +36,13 @@ follow_targets = [NodePath("../WormController")]
 zoom = Vector2(0.4, 0.4)
 tween_resource = SubResource("Resource_ywpxq")
 
-[node name="BGMesh" type="MeshInstance2D" parent="."]
-z_index = -10
-scale = Vector2(2000, 1500)
-mesh = SubResource("QuadMesh_wv8x5")
-texture = SubResource("GradientTexture2D_aws5x")
-
-[node name="SpriteRocks" parent="." instance=ExtResource("6_fdd4a")]
-
-[node name="SpriteCourt" parent="." instance=ExtResource("7_a2bm4")]
-
-[node name="SpriteStone1" parent="." instance=ExtResource("2_o346k")]
-position = Vector2(-666, -99)
-
-[node name="SpriteStone2" parent="." instance=ExtResource("3_l8dt3")]
-position = Vector2(560, -362)
-
-[node name="SpriteStone3" parent="." instance=ExtResource("4_7yr7x")]
-position = Vector2(461, 373)
-
-[node name="SpriteStone4" parent="." instance=ExtResource("5_wx8ee")]
-position = Vector2(-332, 286)
-
-[node name="SpriteFood" parent="." instance=ExtResource("6_we4o5")]
-position = Vector2(-293, -368)
-
 [node name="WormController" parent="." instance=ExtResource("9_ixjsp")]
 
 [node name="MoleController" parent="." instance=ExtResource("13_x7ciq")]
 position = Vector2(618, -94)
 
 [node name="PathsOrigin" type="Node2D" parent="." groups=["PathsOrigin"]]
+
+[node name="Map" parent="." instance=ExtResource("7_drgsk")]
+
+[node name="SoundController" parent="." instance=ExtResource("8_686k5")]

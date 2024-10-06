@@ -22,10 +22,12 @@ script = ExtResource("1_tbkde")
 
 [node name="BGMesh" type="MeshInstance2D" parent="."]
 z_index = -2
-scale = Vector2(2000, 1500)
+scale = Vector2(6000, 1500)
 mesh = SubResource("QuadMesh_23k47")
 texture = SubResource("GradientTexture2D_5whyq")
 
 [node name="SpriteRocks" parent="." instance=ExtResource("3_a05ji")]
+scale = Vector2(3, 1)
 
 [node name="SpriteCourt" parent="." instance=ExtResource("4_1farg")]
+scale = Vector2(3, 1)

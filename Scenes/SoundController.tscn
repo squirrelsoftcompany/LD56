@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bmaxtsl24lset"]
 
-[ext_resource type="Script" path="res://Scenes/sound_controller.gd" id="1_gdl24"]
+[ext_resource type="Script" path="res://Scripts/sound_controller.gd" id="1_gdl24"]
 [ext_resource type="AudioStream" uid="uid://bk6pe8yqw378c" path="res://Music/LD56_Base.mp3" id="1_mygpo"]
 [ext_resource type="AudioStream" uid="uid://b8h3h8xjjbs7p" path="res://Music/LD56_MoleDrum.mp3" id="2_djai6"]
 [ext_resource type="AudioStream" uid="uid://c5qul5qjxgmil" path="res://Music/LD56_AntNoise.mp3" id="3_pp6bw"]
