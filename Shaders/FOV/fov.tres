@@ -8,6 +8,8 @@ op_type = 2
 
 [sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_q0f5s"]
 parameter_name = "FovColor"
+default_value_enabled = true
+default_value = Color(0, 0, 0, 1)
 
 [sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_yirr0"]
 parameter_name = "FOV_Mask"
@@ -21,7 +23,7 @@ input_name = "uv"
 source = 5
 
 [sub_resource type="VisualShaderNodeIf" id="VisualShaderNodeIf_73fkw"]
-default_input_values = [0, 0.0, 1, 0.1, 2, 0.1, 3, Vector3(0, 0, 0), 4, Vector3(0, 0, 0), 5, Vector3(0, 0, 0)]
+default_input_values = [0, 0.0, 1, 0.9, 2, 0.05, 3, Vector3(0, 0, 0), 4, Vector3(0, 0, 0), 5, Vector3(0, 0, 0)]
 
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_uwvax"]
 constant = 1.0
@@ -32,7 +34,7 @@ constant = 1.0
 code = "shader_type canvas_item;
 render_mode blend_mix;
 
-uniform vec4 FovColor : source_color;
+uniform vec4 FovColor : source_color = vec4(0.000000, 0.000000, 0.000000, 1.000000);
 uniform sampler2D FOV_Mask : source_color, hint_default_black;
 
 
@@ -72,8 +74,8 @@ void fragment() {
 
 	vec3 n_out6p0;
 // If:6
-	float n_in6p1 = 0.10000;
-	float n_in6p2 = 0.10000;
+	float n_in6p1 = 0.90000;
+	float n_in6p2 = 0.05000;
 	if(abs(n_out10p0 - n_in6p1) < n_in6p2)
 	{
 		n_out6p0 = vec3(n_out7p0);
@@ -95,26 +97,26 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-383.887, 46.4508)
+graph_offset = Vector2(-617.673, 29.3746)
 mode = 1
 flags/light_only = false
-nodes/fragment/0/position = Vector2(420, 240)
+nodes/fragment/0/position = Vector2(300, 300)
 nodes/fragment/2/node = SubResource("VisualShaderNodeColorParameter_q0f5s")
-nodes/fragment/2/position = Vector2(40, 0)
+nodes/fragment/2/position = Vector2(-40, 100)
 nodes/fragment/3/node = SubResource("VisualShaderNodeTexture2DParameter_yirr0")
-nodes/fragment/3/position = Vector2(-860, 460)
+nodes/fragment/3/position = Vector2(-900, 460)
 nodes/fragment/4/node = SubResource("VisualShaderNodeInput_fne7b")
-nodes/fragment/4/position = Vector2(-860, 220)
+nodes/fragment/4/position = Vector2(-900, 220)
 nodes/fragment/5/node = SubResource("VisualShaderNodeTexture_2ucl4")
-nodes/fragment/5/position = Vector2(-460, 280)
+nodes/fragment/5/position = Vector2(-500, 280)
 nodes/fragment/6/node = SubResource("VisualShaderNodeIf_73fkw")
-nodes/fragment/6/position = Vector2(120, 420)
+nodes/fragment/6/position = Vector2(40, 420)
 nodes/fragment/7/node = SubResource("VisualShaderNodeFloatConstant_uwvax")
-nodes/fragment/7/position = Vector2(-180, 520)
+nodes/fragment/7/position = Vector2(-240, 520)
 nodes/fragment/8/node = SubResource("VisualShaderNodeFloatConstant_oje8g")
-nodes/fragment/8/position = Vector2(-180, 620)
+nodes/fragment/8/position = Vector2(-240, 620)
 nodes/fragment/10/node = SubResource("VisualShaderNodeVectorDecompose_7yonq")
-nodes/fragment/10/position = Vector2(-180, 280)
+nodes/fragment/10/position = Vector2(-240, 280)
 nodes/fragment/13/node = SubResource("VisualShaderNodeIntConstant_vhor4")
-nodes/fragment/13/position = Vector2(-860, 340)
-nodes/fragment/connections = PackedInt32Array(3, 0, 5, 2, 7, 0, 6, 3, 7, 0, 6, 5, 8, 0, 6, 4, 5, 0, 10, 0, 2, 0, 0, 0, 4, 0, 5, 0, 6, 0, 0, 1, 13, 0, 5, 1, 10, 0, 6, 0)
+nodes/fragment/13/position = Vector2(-900, 340)
+nodes/fragment/connections = PackedInt32Array(7, 0, 6, 3, 7, 0, 6, 5, 8, 0, 6, 4, 5, 0, 10, 0, 4, 0, 5, 0, 6, 0, 0, 1, 13, 0, 5, 1, 3, 0, 5, 2, 2, 0, 0, 0, 10, 0, 6, 0)

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwnvianc6ysa"]
+
+[ext_resource type="Script" path="res://Scripts/fov_mask_manager.gd" id="1_x63f2"]
+[ext_resource type="Script" path="res://addons/linepath2d/linepath2d.gd" id="3_ar51a"]
+
+[sub_resource type="Curve2D" id="Curve2D_vykjr"]
+_data = {
+"points": PackedVector2Array(0, 0, 400, 0, 0, 0, -400, 0, 0, 0, 400, 400)
+}
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_3dy8g"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[node name="FOV_Mask_VP" type="SubViewport"]
+disable_3d = true
+transparent_bg = true
+canvas_cull_mask = 4294967294
+render_target_update_mode = 4
+script = ExtResource("1_x63f2")
+tex_name = "neo"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.4, 0.4)
+
+[node name="FOV_Mask" type="Path2D" parent="."]
+visibility_layer = 2
+curve = SubResource("Curve2D_vykjr")
+script = ExtResource("3_ar51a")
+_curve = SubResource("Curve2D_vykjr")
+width = 100.0
+width_profile = SubResource("Curve_3dy8g")
+fill_default_color = Color(1, 0, 0, 1)
+cap_joint_mode = 2
+cap_begin_cap = 2
+cap_end_cap = 2

@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://c8vq54nywemk5"]
 
-[ext_resource type="Shader" uid="uid://bytkhs4shjklu" path="res://Shaders/fov.tres" id="1_sveax"]
+[ext_resource type="Shader" uid="uid://bytkhs4shjklu" path="res://Shaders/FOV/fov.tres" id="1_sveax"]
 [ext_resource type="Texture2D" uid="uid://cfidkfltofra1" path="res://Sprites/Mask/fov_mask_test.png" id="2_hsjur"]
-[ext_resource type="Script" path="res://Scripts/fov_mask.gd" id="3_o8x80"]
+[ext_resource type="Script" path="res://Scripts/fov.gd" id="3_o8x80"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hkw8p"]
 shader = ExtResource("1_sveax")
@@ -11,8 +11,11 @@ shader_parameter/FOV_Mask = ExtResource("2_hsjur")
 
 [sub_resource type="QuadMesh" id="QuadMesh_vwdoy"]
 
-[node name="FOV_Mask" type="MeshInstance2D"]
-material = SubResource("ShaderMaterial_hkw8p")
-scale = Vector2(2880, 1620)
-mesh = SubResource("QuadMesh_vwdoy")
+[node name="FOV_root" type="Node2D"]
 script = ExtResource("3_o8x80")
+
+[node name="FOV" type="MeshInstance2D" parent="."]
+z_index = 10
+material = SubResource("ShaderMaterial_hkw8p")
+scale = Vector2(2880, -1620)
+mesh = SubResource("QuadMesh_vwdoy")

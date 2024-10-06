@@ -37,6 +37,8 @@ Stone=""
 
 [layer_names]
 
+2d_render/layer_1="normal"
+2d_render/layer_2="fov"
 2d_physics/layer_1="Worm"
 2d_physics/layer_2="Stone"
 2d_physics/layer_3="Rocks"
