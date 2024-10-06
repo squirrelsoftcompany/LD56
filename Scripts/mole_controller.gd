@@ -27,6 +27,7 @@ var state := MoleState.NEXT_RANDOM_TARGET
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_worm_head = get_tree().get_first_node_in_group("WormHead")
+	MapGenerator.moles.push_back(self)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

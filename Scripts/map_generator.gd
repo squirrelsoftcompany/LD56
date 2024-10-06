@@ -4,6 +4,9 @@ const FOOD_RAY_LENGTH = 5 # Short ray for stone X food spacing
 
 @export var stones : Array[Node]
 @export var foods: Array[Node]
+@export var moles: Array[Node]
+@export var ants: Array[Node]
+@export var birds: Array[Node]
 @export var stone_spawn_radius : float
 var rng = RandomNumberGenerator.new()
 var _stone_radius = 20 #Should be transform to a custome variable

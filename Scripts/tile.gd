@@ -9,8 +9,8 @@ var stone_scenes = [preload("res://Scenes/Map/Elements/stone_1.tscn"),\
 var food_scene = preload("res://Scenes/Map/Elements/food.tscn")
 var _mesh : MeshInstance2D
 
-@export var initial_stone_count_min_max : Vector2 = Vector2(5,10)
-@export var initial_food_count_min_max:  Vector2 = Vector2(80,100)
+@export var initial_stone_count_min_max : Vector2i = Vector2i(5,10)
+@export var initial_food_count_min_max:  Vector2i = Vector2i(80,100)
 
 @export var food_timer_spawn = 10
 var food_timer_counter = 10

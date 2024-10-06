@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://bmaxtsl24lset"]
+
+[ext_resource type="Script" path="res://Scenes/sound_controller.gd" id="1_gdl24"]
+[ext_resource type="AudioStream" uid="uid://bk6pe8yqw378c" path="res://Music/LD56_Base.mp3" id="1_mygpo"]
+[ext_resource type="AudioStream" uid="uid://b8h3h8xjjbs7p" path="res://Music/LD56_MoleDrum.mp3" id="2_djai6"]
+[ext_resource type="AudioStream" uid="uid://c5qul5qjxgmil" path="res://Music/LD56_AntNoise.mp3" id="3_pp6bw"]
+[ext_resource type="AudioStream" uid="uid://cfnsqjp2x0qeu" path="res://Music/LD56_BirdPecking.mp3" id="4_hfgu5"]
+
+[sub_resource type="Curve" id="Curve_vhgm8"]
+_data = [Vector2(0.184154, 0), 0.0, 0.0, 0, 0, Vector2(0.603854, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="SoundController" type="Node"]
+script = ExtResource("1_gdl24")
+mole_curve = SubResource("Curve_vhgm8")
+ant_curve = SubResource("Curve_vhgm8")
+bird_curve = SubResource("Curve_vhgm8")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+
+[node name="MusicBase" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_mygpo")
+autoplay = true
+bus = &"Base"
+
+[node name="MusicMole" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_djai6")
+autoplay = true
+bus = &"Mole"
+
+[node name="MusicAnt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pp6bw")
+autoplay = true
+bus = &"Ant"
+
+[node name="MusicBird" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hfgu5")
+autoplay = true
+bus = &"Bird"

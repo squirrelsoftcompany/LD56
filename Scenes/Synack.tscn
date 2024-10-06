@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bj0icu7k2unli"]
+[gd_scene load_steps=12 format=3 uid="uid://bj0icu7k2unli"]
 
 [ext_resource type="PackedScene" uid="uid://png6f8xxnfrf" path="res://Map/Map.tscn" id="1_ha21n"]
 [ext_resource type="Script" path="res://Scripts/worm_controller.gd" id="2_whkh7"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_axjte"]
 [ext_resource type="PackedScene" uid="uid://c2qpkirs2uam5" path="res://Scenes/MovingElement/worm_controller.tscn" id="7_duif3"]
 [ext_resource type="PackedScene" uid="uid://bt41pt4ehgw8x" path="res://Scenes/MovingElement/mole_controller.tscn" id="8_ffb8h"]
+[ext_resource type="PackedScene" uid="uid://bmaxtsl24lset" path="res://Scenes/SoundController.tscn" id="9_nk0vg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3xh4m"]
 height = 60.0
@@ -56,3 +57,7 @@ tween_resource = SubResource("Resource_ir6au")
 
 [node name="MoleController" parent="." instance=ExtResource("8_ffb8h")]
 position = Vector2(618, -94)
+
+[node name="PathsOrigin" type="Node2D" parent="." groups=["PathsOrigin"]]
+
+[node name="SoundController" parent="." instance=ExtResource("9_nk0vg")]
