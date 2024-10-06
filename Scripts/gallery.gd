@@ -1,13 +1,15 @@
 extends Node2D
 
 var last_pos : Vector2
-var gallery : Path2D
+var gallery : LinePath2D
 
 @export var width : float =50 :
 	set(value):
 		width = value
 		if is_instance_valid(gallery):
 			gallery.width = value *1.1
+
+@export var color := Color(0,0,0)
 
 func _ready():
 	gallery = $GalleryPath
@@ -18,6 +20,7 @@ func _ready():
 	gallery.cap_end_cap = 2
 	gallery.cap_begin_cap = 2
 	gallery.width = width*1.1
+	gallery.fill_default_color = color
 
 func _process(_delta):
 	if (global_position - last_pos).length() > width:
