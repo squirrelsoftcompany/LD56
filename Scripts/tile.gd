@@ -7,7 +7,7 @@ var stone_scenes = [preload("res://Scenes/Map/Elements/stone_1.tscn"),\
 					preload("res://Scenes/Map/Elements/stone_4.tscn")]
 
 var food_scene = preload("res://Scenes/Map/Elements/food.tscn")
-var ant_scene = preload("res://Scenes/Map/Elements/stone_4.tscn") # TODO: Change stone_4 scene to ant scene
+var ant_scene = preload("res://Scenes/Map/Elements/Ants/ant_hive.tscn")
 var mole_scene = preload("res://Scenes/MovingElement/mole_controller.tscn") # TODO: Change stone_4 scene to ant scene
 
 var _mesh : MeshInstance2D

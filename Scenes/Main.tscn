@@ -1,14 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://cefracuibowbm"]
+[gd_scene load_steps=10 format=3 uid="uid://cefracuibowbm"]
 
 [ext_resource type="PackedScene" uid="uid://c8vq54nywemk5" path="res://Scenes/Camera/fov.tscn" id="1_c7ibn"]
 [ext_resource type="PackedScene" uid="uid://png6f8xxnfrf" path="res://Map/Map.tscn" id="7_drgsk"]
-[ext_resource type="PackedScene" path="res://Scenes/SoundController.tscn" id="8_686k5"]
+[ext_resource type="PackedScene" uid="uid://bmaxtsl24lset" path="res://Scenes/SoundController.tscn" id="8_686k5"]
 [ext_resource type="PackedScene" uid="uid://c2qpkirs2uam5" path="res://Scenes/MovingElement/worm_controller.tscn" id="9_ixjsp"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="9_uljwb"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="10_8ouvx"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="11_4vje4"]
-[ext_resource type="PackedScene" uid="uid://bt41pt4ehgw8x" path="res://Scenes/MovingElement/mole_controller.tscn" id="13_x7ciq"]
-[ext_resource type="PackedScene" uid="uid://bwnvianc6ysa" path="res://Scenes/Camera/fov_mask.tscn" id="15_iuhcr"]
+[ext_resource type="PackedScene" path="res://Scenes/Camera/fov_mask.tscn" id="15_iuhcr"]
 
 [sub_resource type="Resource" id="Resource_ywpxq"]
 script = ExtResource("11_4vje4")
@@ -35,9 +34,6 @@ zoom = Vector2(0.4, 0.4)
 tween_resource = SubResource("Resource_ywpxq")
 
 [node name="WormController" parent="." instance=ExtResource("9_ixjsp")]
-
-[node name="MoleController" parent="." instance=ExtResource("13_x7ciq")]
-position = Vector2(618, -94)
 
 [node name="PathsOrigin" type="Node2D" parent="." groups=["PathsOrigin"]]
 
