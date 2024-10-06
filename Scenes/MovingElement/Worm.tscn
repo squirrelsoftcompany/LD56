@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctey2y2gj1nsf"]
+[gd_scene load_steps=12 format=3 uid="uid://ctey2y2gj1nsf"]
 
 [ext_resource type="Script" path="res://Scripts/worm.gd" id="1_va3wr"]
 [ext_resource type="Script" path="res://addons/linepath2d/linepath2d.gd" id="2_bub8w"]
 [ext_resource type="PackedScene" uid="uid://vn8rbpcap1xu" path="res://Scenes/MovingElement/Gallery.tscn" id="3_au4qk"]
+[ext_resource type="PackedScene" uid="uid://bhmy4ntwijlqp" path="res://Scenes/sight.tscn" id="4_ik2mo"]
+[ext_resource type="Shader" uid="uid://blqrk5sbh5hti" path="res://Main.tres" id="5_t2mpv"]
 
 [sub_resource type="Curve2D" id="Curve2D_qtxc4"]
 _data = {
@@ -13,6 +15,24 @@ point_count = 2
 [sub_resource type="Curve" id="Curve_hm42f"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
 point_count = 1
+
+[sub_resource type="Gradient" id="Gradient_gd7ll"]
+offsets = PackedFloat32Array(0.732394, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_16xnd"]
+gradient = SubResource("Gradient_gd7ll")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_u37lq"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3d815"]
+resource_local_to_scene = true
+shader = ExtResource("5_t2mpv")
+shader_parameter/sight = SubResource("ViewportTexture_u37lq")
 
 [node name="Worm" type="Node2D" groups=["WormBody"]]
 script = ExtResource("1_va3wr")
@@ -30,4 +50,25 @@ fill_default_color = Color(0.414063, 0.259431, 0.300101, 1)
 [node name="Butt" type="Node2D" parent="WormPath" groups=["WormBody"]]
 
 [node name="Gallery" parent="." instance=ExtResource("3_au4qk")]
-z_index = -8
+
+[node name="Sight" parent="." instance=ExtResource("4_ik2mo")]
+
+[node name="WormSight" type="Path2D" parent="Sight/CamWormSight" index="0"]
+top_level = true
+light_mask = 2
+visibility_layer = 2
+z_index = 100
+curve = SubResource("Curve2D_qtxc4")
+script = ExtResource("2_bub8w")
+_curve = SubResource("Curve2D_qtxc4")
+width = 50.0
+width_profile = SubResource("Curve_hm42f")
+fill_texture = SubResource("GradientTexture2D_16xnd")
+fill_texture_mode = 2
+cap_begin_cap = 1
+cap_end_cap = 1
+
+[node name="CanvasModulate" parent="Sight" index="1"]
+material = SubResource("ShaderMaterial_3d815")
+
+[editable path="Sight"]

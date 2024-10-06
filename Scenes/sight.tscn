@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhmy4ntwijlqp"]
+
+[ext_resource type="Shader" uid="uid://blqrk5sbh5hti" path="res://Main.tres" id="1_13frk"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nwa5t"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hfko8"]
+resource_local_to_scene = true
+shader = ExtResource("1_13frk")
+shader_parameter/sight = SubResource("ViewportTexture_nwa5t")
+
+[node name="Sight" type="Node2D"]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+gui_disable_input = true
+
+[node name="CamWormSight" type="Camera2D" parent="SubViewport"]
+physics_interpolation_mode = 1
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-210, 330)
+zoom = Vector2(5, 5)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+material = SubResource("ShaderMaterial_hfko8")
+color = Color(0.0898438, 0.0898438, 0.0898438, 1)
