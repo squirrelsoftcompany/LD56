@@ -1,12 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxylqd85w5i1m"]
+[gd_scene load_steps=2 format=3 uid="uid://cxylqd85w5i1m"]
 
 [ext_resource type="Texture2D" uid="uid://b5ihv4owe5wxt" path="res://Sprites/Placeholder/sprite_stone4.png" id="1_2s31e"]
-[ext_resource type="Script" path="res://Scenes/Map/Elements/stone.gd" id="2_vk3v1"]
 
 [node name="SpriteStone4" type="Sprite2D" groups=["Stone"]]
 z_index = -2
 texture = ExtResource("1_2s31e")
-script = ExtResource("2_vk3v1")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Stone"]]
 disable_mode = 2
