@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2qpkirs2uam5"]
+[gd_scene load_steps=5 format=3 uid="uid://c2qpkirs2uam5"]
 
 [ext_resource type="Script" path="res://Scripts/worm_controller.gd" id="1_44qbw"]
+[ext_resource type="Script" path="res://Scenes/MovingElement/worm_head_collision.gd" id="2_mhdyn"]
 [ext_resource type="PackedScene" uid="uid://ctey2y2gj1nsf" path="res://Scenes/MovingElement/Worm.tscn" id="2_oe58f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ltyw"]
@@ -14,7 +15,11 @@ script = ExtResource("1_44qbw")
 max_rotation_speed_in_degrees = 60
 max_forward_speed = 50
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 32
+script = ExtResource("2_mhdyn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-7.5, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_8ltyw")
@@ -22,3 +27,12 @@ shape = SubResource("CapsuleShape2D_8ltyw")
 [node name="Worm" parent="." instance=ExtResource("2_oe58f")]
 start_width = 25.0
 length = 80.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-7.5, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_8ltyw")
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

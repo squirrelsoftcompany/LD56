@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bj0icu7k2unli"]
+[gd_scene load_steps=11 format=3 uid="uid://bj0icu7k2unli"]
 
 [ext_resource type="PackedScene" uid="uid://png6f8xxnfrf" path="res://Map/Map.tscn" id="1_ha21n"]
 [ext_resource type="Script" path="res://Scripts/worm_controller.gd" id="2_whkh7"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_bbekb"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_5migg"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_axjte"]
+[ext_resource type="PackedScene" uid="uid://c2qpkirs2uam5" path="res://Scenes/MovingElement/worm_controller.tscn" id="7_duif3"]
+[ext_resource type="PackedScene" uid="uid://bt41pt4ehgw8x" path="res://Scenes/MovingElement/mole_controller.tscn" id="8_ffb8h"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3xh4m"]
 height = 60.0
@@ -21,6 +23,7 @@ ease = 2
 [node name="Map" parent="." instance=ExtResource("1_ha21n")]
 
 [node name="WormHead" type="CharacterBody2D" parent="."]
+visible = false
 position = Vector2(-235, 338)
 floor_constant_speed = true
 script = ExtResource("2_whkh7")
@@ -38,7 +41,6 @@ texture = ExtResource("3_g5y31")
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
 position = Vector2(-235, 338)
-zoom = Vector2(5, 5)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 script = ExtResource("4_bbekb")
@@ -48,5 +50,9 @@ position = Vector2(-235, 338)
 script = ExtResource("5_5migg")
 follow_mode = 3
 follow_targets = [NodePath("../WormHead")]
-zoom = Vector2(5, 5)
 tween_resource = SubResource("Resource_ir6au")
+
+[node name="WormController" parent="." instance=ExtResource("7_duif3")]
+
+[node name="MoleController" parent="." instance=ExtResource("8_ffb8h")]
+position = Vector2(618, -94)

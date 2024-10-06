@@ -30,6 +30,7 @@ enabled=PackedStringArray("res://addons/debugdraw2d/plugin.cfg", "res://addons/l
 WormBody=""
 WormHead=""
 PathsOrigin=""
+Food=""
 
 [layer_names]
 
@@ -38,6 +39,7 @@ PathsOrigin=""
 2d_physics/layer_3="Rocks"
 2d_physics/layer_4="Court"
 2d_physics/layer_5="Mole"
+2d_physics/layer_6="Food"
 
 [phantom_camera]
 
