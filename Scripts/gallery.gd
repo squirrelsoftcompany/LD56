@@ -21,6 +21,8 @@ func _ready():
 	gallery.cap_begin_cap = 2
 	gallery.width = width*1.1
 	gallery.fill_default_color = color
+	remove_child(gallery)
+	get_tree().get_nodes_in_group("PathsOrigin")[0].add_child(gallery)
 
 func _process(_delta):
 	if (global_position - last_pos).length() > width:

@@ -17,7 +17,7 @@ point_count = 1
 script = ExtResource("1_d84on")
 
 [node name="GalleryPath" type="Path2D" parent="."]
-top_level = true
+z_index = -6
 curve = SubResource("Curve2D_nequj")
 script = ExtResource("1_l3hat")
 _curve = SubResource("Curve2D_nequj")

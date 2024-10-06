@@ -79,3 +79,5 @@ position = Vector2(-293, -368)
 
 [node name="MoleController" parent="." instance=ExtResource("13_x7ciq")]
 position = Vector2(618, -94)
+
+[node name="PathsOrigin" type="Node2D" parent="." groups=["PathsOrigin"]]

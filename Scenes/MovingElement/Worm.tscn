@@ -18,8 +18,7 @@ point_count = 1
 script = ExtResource("1_va3wr")
 
 [node name="WormPath" type="Path2D" parent="."]
-top_level = true
-z_index = 10
+z_index = 4
 curve = SubResource("Curve2D_qtxc4")
 script = ExtResource("2_bub8w")
 _curve = SubResource("Curve2D_qtxc4")
@@ -27,7 +26,6 @@ width = 50.0
 width_profile = SubResource("Curve_hm42f")
 fill_default_color = Color(0.414063, 0.259431, 0.300101, 1)
 
-[node name="Butt" type="Node2D" parent="WormPath" groups=["WormBody"]]
-
 [node name="Gallery" parent="." instance=ExtResource("3_au4qk")]
-z_index = -8
+
+[node name="Butt" type="Node2D" parent="." groups=["WormBody"]]

@@ -29,6 +29,7 @@ enabled=PackedStringArray("res://addons/debugdraw2d/plugin.cfg", "res://addons/l
 
 WormBody=""
 WormHead=""
+PathsOrigin=""
 
 [layer_names]
 
