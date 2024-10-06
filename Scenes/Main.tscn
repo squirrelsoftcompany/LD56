@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://cefracuibowbm"]
+[gd_scene load_steps=20 format=3 uid="uid://cefracuibowbm"]
 
+[ext_resource type="PackedScene" uid="uid://c8vq54nywemk5" path="res://Scenes/Camera/fov.tscn" id="1_c7ibn"]
 [ext_resource type="Texture2D" uid="uid://bpt6ldy8jlbce" path="res://Sprites/Placeholder/sprite_rocks.png" id="2_1ocxd"]
 [ext_resource type="PackedScene" uid="uid://cxx38earkuw5l" path="res://Scenes/Map/Elements/stone_1.tscn" id="2_o346k"]
 [ext_resource type="PackedScene" uid="uid://bgx7xe88hy363" path="res://Scenes/Map/Elements/stone_2.tscn" id="3_l8dt3"]
@@ -33,6 +34,9 @@ colors = PackedColorArray(0.172549, 0.141176, 0.141176, 1, 0.172549, 0.141176, 0
 gradient = SubResource("Gradient_0mwqu")
 
 [node name="Main" type="Node2D"]
+
+[node name="FOV" parent="." instance=ExtResource("1_c7ibn")]
+visible = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
