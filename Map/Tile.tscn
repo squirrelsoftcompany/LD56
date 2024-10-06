@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://buefhu8ssv6c1"]
+[gd_scene load_steps=9 format=3 uid="uid://buefhu8ssv6c1"]
 
 [ext_resource type="Texture2D" uid="uid://bpt6ldy8jlbce" path="res://Sprites/Placeholder/sprite_rocks.png" id="1_jmuwe"]
 [ext_resource type="Script" path="res://Scripts/tile.gd" id="1_tbkde"]
+[ext_resource type="PackedScene" uid="uid://b25u3e57lesyp" path="res://Scenes/Map/Elements/rocks.tscn" id="3_a05ji"]
+[ext_resource type="PackedScene" uid="uid://bi5inu67rib6r" path="res://Scenes/Map/Elements/court.tscn" id="4_1farg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ljril"]
 albedo_texture = ExtResource("1_jmuwe")
@@ -23,3 +25,7 @@ z_index = -2
 scale = Vector2(2000, 1500)
 mesh = SubResource("QuadMesh_23k47")
 texture = SubResource("GradientTexture2D_5whyq")
+
+[node name="SpriteRocks" parent="." instance=ExtResource("3_a05ji")]
+
+[node name="SpriteCourt" parent="." instance=ExtResource("4_1farg")]
