@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cefracuibowbm"]
+[gd_scene load_steps=11 format=3 uid="uid://cefracuibowbm"]
 
 [ext_resource type="PackedScene" uid="uid://c8vq54nywemk5" path="res://Scenes/Camera/fov.tscn" id="1_c7ibn"]
 [ext_resource type="PackedScene" uid="uid://png6f8xxnfrf" path="res://Map/Map.tscn" id="7_drgsk"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="10_8ouvx"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="11_4vje4"]
 [ext_resource type="PackedScene" uid="uid://bt41pt4ehgw8x" path="res://Scenes/MovingElement/mole_controller.tscn" id="13_x7ciq"]
+[ext_resource type="PackedScene" uid="uid://bwnvianc6ysa" path="res://Scenes/Camera/fov_mask.tscn" id="15_iuhcr"]
 
 [sub_resource type="Resource" id="Resource_ywpxq"]
 script = ExtResource("11_4vje4")
@@ -16,9 +17,6 @@ transition = 0
 ease = 2
 
 [node name="Main" type="Node2D"]
-
-[node name="FOV" parent="." instance=ExtResource("1_c7ibn")]
-visible = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
@@ -46,3 +44,8 @@ position = Vector2(618, -94)
 [node name="Map" parent="." instance=ExtResource("7_drgsk")]
 
 [node name="SoundController" parent="." instance=ExtResource("8_686k5")]
+
+[node name="FOV" parent="." instance=ExtResource("1_c7ibn")]
+
+[node name="FOV_Mask_VP" parent="." instance=ExtResource("15_iuhcr")]
+canvas_cull_mask = 4293918722
