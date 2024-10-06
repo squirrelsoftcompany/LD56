@@ -33,6 +33,7 @@ PathsOrigin=""
 Food=""
 AntHives="for distace calculation (ex: music...)"
 Damager="damaging ?"
+Stone=""
 
 [layer_names]
 

@@ -1,13 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://ltoettmlgsjj"]
+[gd_scene load_steps=3 format=3 uid="uid://ltoettmlgsjj"]
 
 [ext_resource type="Texture2D" uid="uid://c88a057eu4si2" path="res://Sprites/Placeholder/sprite_stone3.png" id="1_nsuo0"]
+[ext_resource type="Script" path="res://Scenes/Map/Elements/stone.gd" id="2_1myev"]
 
-[node name="SpriteStone3" type="Sprite2D"]
+[node name="SpriteStone3" type="Sprite2D" groups=["Stone"]]
 z_index = -2
 texture = ExtResource("1_nsuo0")
+script = ExtResource("2_1myev")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Stone"]]
+disable_mode = 2
 collision_layer = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" groups=["Stone"]]
 polygon = PackedVector2Array(-31, 66, -3, 82, 30, 88, 52, 58, 46, -11, 26, -68, 18, -84, -16, -88, -33, -70, -50, -4)

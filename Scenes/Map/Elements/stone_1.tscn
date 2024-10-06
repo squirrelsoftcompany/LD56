@@ -1,15 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxx38earkuw5l"]
+[gd_scene load_steps=3 format=3 uid="uid://cxx38earkuw5l"]
 
 [ext_resource type="Texture2D" uid="uid://caigtg4jc5exb" path="res://Sprites/Placeholder/sprite_stone1.png" id="1_sgrj7"]
+[ext_resource type="Script" path="res://Scenes/Map/Elements/stone.gd" id="2_euqxo"]
 
-[node name="SpriteStone1" type="Sprite2D"]
+[node name="SpriteStone1" type="Sprite2D" groups=["Stone"]]
 z_index = -2
 texture = ExtResource("1_sgrj7")
+script = ExtResource("2_euqxo")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Stone"]]
+disable_mode = 2
 collision_layer = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" groups=["Stone"]]
 position = Vector2(2, 7)
 scale = Vector2(0.995457, 0.912566)
 polygon = PackedVector2Array(-34.1552, 65.7487, 60.2738, 60.2696, 69.3149, 36.1618, 55.251, -52.5989, -23.105, -84.3775, -41.1871, -66.8445, -64.2921, -33.9701, -76.3468, 3.28744, -74.3377, 40.545)
