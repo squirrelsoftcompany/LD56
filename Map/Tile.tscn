@@ -21,7 +21,7 @@ gradient = SubResource("Gradient_28a45")
 script = ExtResource("1_tbkde")
 
 [node name="BGMesh" type="MeshInstance2D" parent="."]
-z_index = -2
+z_index = -10
 scale = Vector2(6000, 1500)
 mesh = SubResource("QuadMesh_23k47")
 texture = SubResource("GradientTexture2D_5whyq")
