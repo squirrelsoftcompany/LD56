@@ -7,14 +7,14 @@ const FOOD_RAY_LENGTH = 20 # Short ray for Stone X Food spacing
 @export var moles: Array[Node]
 @export var ants: Array[Node]
 @export var birds: Array[Node]
+@export var worm: Node # It may not be the best place, but for LD jam, it's good enough.
 @export var stone_spawn_radius : float = 300
 var rng = RandomNumberGenerator.new()
 var _stone_radius = 100 #Should be transform to a custome variable
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-	
+	pass # Replace with function body.	
 
 
 func _random_stone_pos(tile : Tile) -> Vector2:
@@ -48,8 +48,6 @@ func _random_food_pos(tile : Tile) -> Vector2:
 		# Use the global position to check the promiscuity with stones on the complete map
 		_new_food_global_position = tile.to_global(_new_food_position)
 		for _stone in stones:
-			print("stone_spawn_radius : " + str(stone_spawn_radius))
-			print("_stone.global_position - _new_food_global_position).length() : " + str((_stone.global_position - _new_food_global_position).length()))
 			if (_stone.global_position - _new_food_global_position).length() < _stone_radius:
 				##Additional test for stone into radius
 				#var space_state = get_world_2d().direct_space_state
