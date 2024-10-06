@@ -15,11 +15,11 @@ func _ready():
 func _process(delta):
 	if _time <= warning_length:
 		modulate.a = _time/warning_length
-		print(modulate.a)
 	if not continuous :
 		if _time > warning_length:
 			modulate.a = 1-((_time-warning_length)/warning_length)
 			if _time > 2*warning_length :
 				queue_free()
 	modulate.a = modulate.a if modulate.a < max_alpha else max_alpha
-	_time += delta
+	if _time < 2* warning_length :
+		_time += delta

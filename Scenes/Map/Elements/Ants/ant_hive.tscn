@@ -1,0 +1,107 @@
+[gd_scene load_steps=17 format=3 uid="uid://da356ev4euiup"]
+
+[ext_resource type="Script" path="res://Scripts/ant_hive.gd" id="1_4y2bq"]
+[ext_resource type="PackedScene" uid="uid://oxa6c0v6lqbc" path="res://assets/VFX/Tremor.tscn" id="2_fsoec"]
+[ext_resource type="Script" path="res://addons/linepath2d/linepath2d.gd" id="2_u81oa"]
+
+[sub_resource type="Gradient" id="Gradient_v7obo"]
+offsets = PackedFloat32Array(0, 0.188525, 0.852459, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_n23ci"]
+gradient = SubResource("Gradient_v7obo")
+
+[sub_resource type="Curve" id="Curve_wh8bx"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 0.582418), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_0rv0u"]
+curve = SubResource("Curve_wh8bx")
+
+[sub_resource type="Curve" id="Curve_hqn0t"]
+_data = [Vector2(0, 0), 0.0, 2.6517, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_g6rfv"]
+curve = SubResource("Curve_hqn0t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3c41m"]
+lifetime_randomness = 0.23
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 12.0
+velocity_limit_curve = SubResource("CurveTexture_g6rfv")
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+radial_accel_min = -4.0
+radial_accel_max = 2.0
+tangential_accel_min = -10.0
+tangential_accel_max = 10.0
+scale_curve = SubResource("CurveTexture_0rv0u")
+color_ramp = SubResource("GradientTexture1D_n23ci")
+
+[sub_resource type="Gradient" id="Gradient_6go7c"]
+offsets = PackedFloat32Array(0, 0.909091, 0.941558)
+colors = PackedColorArray(1, 0, 0.164971, 1, 1, 0, 0.165217, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e2mbx"]
+gradient = SubResource("Gradient_6go7c")
+width = 4
+height = 6
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Curve2D" id="Curve2D_3spa3"]
+_data = {
+"points": PackedVector2Array(0, 0, 400, 0, 0, 0, -400, 0, 0, 0, 400, 400)
+}
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_d7nq6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lhxbj"]
+noise_type = 3
+frequency = 0.0031
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mlira"]
+noise = SubResource("FastNoiseLite_lhxbj")
+
+[node name="AntHive" type="Polygon2D" groups=["AntHives"]]
+z_index = -7
+color = Color(0.298039, 0.141176, 0.152941, 1)
+polygon = PackedVector2Array(-25, -13, -5, -24, 16, -24, 25, -13, 25, 2, 10, 10, -17, 7, -32, 3)
+script = ExtResource("1_4y2bq")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.298039, 0.141176, 0.152941, 1)
+
+[node name="Tremor" parent="Polygon2D" instance=ExtResource("2_fsoec")]
+continuous = true
+warning_length = 0.0
+max_alpha = 0.1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Polygon2D"]
+process_material = SubResource("ParticleProcessMaterial_3c41m")
+texture = SubResource("GradientTexture2D_e2mbx")
+lifetime = 8.0
+
+[node name="Area2D" type="Area2D" parent="Polygon2D" groups=["Damager"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Polygon2D/Area2D"]
+
+[node name="LinePath2D" type="Path2D" parent="."]
+show_behind_parent = true
+z_index = -7
+curve = SubResource("Curve2D_3spa3")
+script = ExtResource("2_u81oa")
+_curve = SubResource("Curve2D_3spa3")
+width = 10.0
+width_profile = SubResource("Curve_d7nq6")
+fill_default_color = Color(0.296875, 0.141047, 0.152132, 1)
+fill_texture = SubResource("NoiseTexture2D_mlira")
+fill_texture_mode = 2

@@ -31,6 +31,8 @@ WormBody=""
 WormHead=""
 PathsOrigin=""
 Food=""
+AntHives="for distace calculation (ex: music...)"
+Damager="damaging ?"
 
 [layer_names]
 
