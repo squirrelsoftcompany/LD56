@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://caigtg4jc5exb" path="res://Sprites/Placeholder/sprite_stone1.png" id="1_sgrj7"]
 
 [node name="SpriteStone1" type="Sprite2D"]
+z_index = -2
 texture = ExtResource("1_sgrj7")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

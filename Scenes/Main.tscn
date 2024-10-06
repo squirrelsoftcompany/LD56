@@ -14,6 +14,12 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="11_4vje4"]
 [ext_resource type="PackedScene" uid="uid://bt41pt4ehgw8x" path="res://Scenes/MovingElement/mole_controller.tscn" id="13_x7ciq"]
 
+[sub_resource type="Resource" id="Resource_ywpxq"]
+script = ExtResource("11_4vje4")
+duration = 1.0
+transition = 0
+ease = 2
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_38h78"]
 albedo_texture = ExtResource("2_1ocxd")
 
@@ -26,40 +32,7 @@ colors = PackedColorArray(0.172549, 0.141176, 0.141176, 1, 0.172549, 0.141176, 0
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_aws5x"]
 gradient = SubResource("Gradient_0mwqu")
 
-[sub_resource type="Resource" id="Resource_ywpxq"]
-script = ExtResource("11_4vje4")
-duration = 1.0
-transition = 0
-ease = 2
-
 [node name="Main" type="Node2D"]
-
-[node name="BGMesh" type="MeshInstance2D" parent="."]
-z_index = -2
-scale = Vector2(2000, 1500)
-mesh = SubResource("QuadMesh_wv8x5")
-texture = SubResource("GradientTexture2D_aws5x")
-
-[node name="SpriteStone1" parent="." instance=ExtResource("2_o346k")]
-position = Vector2(-666, -99)
-
-[node name="SpriteStone2" parent="." instance=ExtResource("3_l8dt3")]
-position = Vector2(560, -362)
-
-[node name="SpriteStone3" parent="." instance=ExtResource("4_7yr7x")]
-position = Vector2(461, 373)
-
-[node name="SpriteStone4" parent="." instance=ExtResource("5_wx8ee")]
-position = Vector2(-332, 286)
-
-[node name="SpriteRocks" parent="." instance=ExtResource("6_fdd4a")]
-
-[node name="SpriteFood" parent="." instance=ExtResource("6_we4o5")]
-position = Vector2(-293, -368)
-
-[node name="SpriteCourt" parent="." instance=ExtResource("7_a2bm4")]
-
-[node name="WormController" parent="." instance=ExtResource("9_ixjsp")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
@@ -76,6 +49,33 @@ follow_mode = 3
 follow_targets = [NodePath("../WormController")]
 zoom = Vector2(0.4, 0.4)
 tween_resource = SubResource("Resource_ywpxq")
+
+[node name="BGMesh" type="MeshInstance2D" parent="."]
+z_index = -10
+scale = Vector2(2000, 1500)
+mesh = SubResource("QuadMesh_wv8x5")
+texture = SubResource("GradientTexture2D_aws5x")
+
+[node name="SpriteRocks" parent="." instance=ExtResource("6_fdd4a")]
+
+[node name="SpriteCourt" parent="." instance=ExtResource("7_a2bm4")]
+
+[node name="SpriteStone1" parent="." instance=ExtResource("2_o346k")]
+position = Vector2(-666, -99)
+
+[node name="SpriteStone2" parent="." instance=ExtResource("3_l8dt3")]
+position = Vector2(560, -362)
+
+[node name="SpriteStone3" parent="." instance=ExtResource("4_7yr7x")]
+position = Vector2(461, 373)
+
+[node name="SpriteStone4" parent="." instance=ExtResource("5_wx8ee")]
+position = Vector2(-332, 286)
+
+[node name="SpriteFood" parent="." instance=ExtResource("6_we4o5")]
+position = Vector2(-293, -368)
+
+[node name="WormController" parent="." instance=ExtResource("9_ixjsp")]
 
 [node name="MoleController" parent="." instance=ExtResource("13_x7ciq")]
 position = Vector2(618, -94)

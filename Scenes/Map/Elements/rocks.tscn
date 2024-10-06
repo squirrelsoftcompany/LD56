@@ -7,7 +7,7 @@
 size = Vector2(1, 1)
 
 [node name="SpriteRocks" type="Sprite2D"]
-z_index = -1
+z_index = -8
 texture_repeat = 2
 position = Vector2(0, 775)
 texture = ExtResource("1_4hu6n")

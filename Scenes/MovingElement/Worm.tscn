@@ -30,3 +30,4 @@ fill_default_color = Color(0.414063, 0.259431, 0.300101, 1)
 [node name="Butt" type="Node2D" parent="WormPath" groups=["WormBody"]]
 
 [node name="Gallery" parent="." instance=ExtResource("3_au4qk")]
+z_index = -8

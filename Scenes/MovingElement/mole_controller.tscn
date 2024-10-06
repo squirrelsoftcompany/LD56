@@ -9,6 +9,7 @@ radius = 70.0
 height = 400.0
 
 [node name="MoleController" type="CharacterBody2D"]
+z_index = 2
 collision_layer = 16
 collision_mask = 12
 script = ExtResource("1_ng6xw")
@@ -25,4 +26,6 @@ rotation = 1.5708
 texture = ExtResource("1_74dby")
 
 [node name="Gallery" parent="." instance=ExtResource("3_x6277")]
+z_index = -8
 width = 220.0
+color = Color(0.125207, 0.0351766, 0.000433002, 1)
