@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/LD56_Base.mp3-5276af5a88e770b52fcfbd70734262d
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
