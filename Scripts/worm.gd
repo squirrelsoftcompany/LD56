@@ -23,6 +23,7 @@ func _ready():
 	remove_child(worm)
 	get_tree().get_nodes_in_group("PathsOrigin")[0].add_child(worm)
 	gallery.z_index = -4
+	MapGenerator.worm = self
 
 func _process(_delta):
 	worm._curve = gallery.curve.duplicate()
@@ -35,3 +36,7 @@ func _process(_delta):
 		worm.curve.add_point(butt_pos,Vector2.ZERO,Vector2.ZERO,0)
 						#----- move test -----
 	#position += Vector2(1,randf_range(-0.5,1.2))
+
+func add_to_lenght(increment : float):
+	length = length + increment
+	pass

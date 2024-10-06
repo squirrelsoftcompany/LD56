@@ -13,7 +13,6 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Food"):
-		print("MIAM") #Debug print
-		# TODO : Increment "score"
+		MapGenerator.worm.add_to_lenght(1)
 		area.get_parent().queue_free()
 	pass # Replace with function body.
