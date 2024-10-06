@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://oxa6c0v6lqbc"]
+
+[ext_resource type="Shader" uid="uid://br57hdvju5q87" path="res://assets/VFX/warning.tres" id="1_26d37"]
+[ext_resource type="Script" path="res://assets/VFX/tremor.gd" id="2_kl3u7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wopnk"]
+shader = ExtResource("1_26d37")
+shader_parameter/size = 30.0
+shader_parameter/speed = 8.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_uv0kc"]
+
+[node name="Tremor" type="MeshInstance2D"]
+material = SubResource("ShaderMaterial_wopnk")
+mesh = SubResource("QuadMesh_uv0kc")
+script = ExtResource("2_kl3u7")
