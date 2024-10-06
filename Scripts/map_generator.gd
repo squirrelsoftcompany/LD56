@@ -65,3 +65,26 @@ func _random_food_pos(tile : Tile) -> Vector2:
 					#_valid = false
 				_valid = false
 	return _new_food_position
+	
+
+func _random_ant_pos(tile : Tile) -> Vector2:
+	var _valid = false
+	var _new_ant_position : Vector2
+	var _new_ant_global_position : Vector2
+	
+	while not _valid:
+		var width = tile.get_tile_size().x
+		var height = tile.get_tile_size().y
+		_new_ant_position.x = rng.randf_range(-width/2 + _stone_radius, width/2 - _stone_radius)
+		_new_ant_position.y = rng.randf_range(-height/2 + _stone_radius, height/2 - _stone_radius)
+		_valid = true
+		# Use the global position to check the promiscuity of stones on the complete map
+		_new_ant_global_position = tile.to_global(_new_ant_position)
+		for _stone in stones:
+			if (_stone.global_position - _new_ant_global_position).length() < stone_spawn_radius:
+				_valid = false
+		for _ant in ants:
+			if (_ant.global_position - _new_ant_global_position).length() < stone_spawn_radius:
+				_valid = false
+				
+	return _new_ant_position
