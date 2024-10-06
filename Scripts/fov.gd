@@ -14,3 +14,5 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	_fov.position = _top_cam2d.position
+	_fov.scale.x = get_viewport_rect().size.x / _top_cam2d.zoom.x
+	_fov.scale.y = -get_viewport_rect().size.y / _top_cam2d.zoom.y

@@ -20,6 +20,8 @@ func _process(delta: float) -> void:
 	assert(_sub_cam2d != _top_cam2d)
 	_sub_cam2d.position = _top_cam2d.position
 	_sub_cam2d.zoom = _top_cam2d.zoom
-	size = _viewport.get_visible_rect().size
+	size = get_parent().get_viewport_rect().size
 	
 	$FOV_Mask._curve = get_tree().get_first_node_in_group("WormBody").worm._curve
+	
+	#world_2d = get_parent().get_viewport().world_2d #debug
