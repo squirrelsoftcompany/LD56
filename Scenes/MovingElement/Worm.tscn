@@ -36,7 +36,7 @@ fill_default_color = Color(0.414063, 0.259431, 0.300101, 1)
 
 [node name="Skin" type="Node2D" parent="."]
 
-[node name="Nerve" type="Area2D" parent="Skin"]
+[node name="Nerve" type="Area2D" parent="Skin" groups=["WormBody"]]
 disable_mode = 2
 collision_mask = 208
 
