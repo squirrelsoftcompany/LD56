@@ -63,8 +63,21 @@ func _random_food_pos(tile : Tile) -> Vector2:
 	while not _valid:
 		var width = tile.get_tile_size().x
 		var height = tile.get_tile_size().y
-		_new_food_position.x = rng.randf_range(-width/2 + _stone_radius, width/2 - _stone_radius)
-		_new_food_position.y = rng.randf_range(-height/2 + _stone_radius, height/2 - _stone_radius)
+		
+		var _min_x = -width/2 + _stone_radius
+		var _max_x = width/2 - _stone_radius
+		var _min_y = -height/2 + _stone_radius
+		var _max_y = height/2 - _stone_radius
+
+		var _uniform_random_x = rng.randf()
+		var _uniform_random_y = rng.randf()
+		var _bias_factor = 2.0
+		var _biased_random_x = pow(_uniform_random_x, 1.0)
+		var _biased_random_y = pow(_uniform_random_y, _bias_factor)
+
+		_new_food_position.x = _min_x + _biased_random_x * (_max_x - _min_x)
+		_new_food_position.y = _min_y + _biased_random_y * (_max_y - _min_y)
+		
 		_valid = true
 		# Use the global position to check the promiscuity with stones on the complete map
 		_new_food_global_position = tile.to_global(_new_food_position)
