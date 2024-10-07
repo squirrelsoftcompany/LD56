@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmaxtsl24lset"]
+[gd_scene load_steps=9 format=3 uid="uid://bmaxtsl24lset"]
 
 [ext_resource type="Script" path="res://Scripts/sound_controller.gd" id="1_gdl24"]
 [ext_resource type="AudioStream" uid="uid://bk6pe8yqw378c" path="res://Music/LD56_Base.mp3" id="1_mygpo"]
@@ -6,15 +6,23 @@
 [ext_resource type="AudioStream" uid="uid://c5qul5qjxgmil" path="res://Music/LD56_AntNoise.mp3" id="3_pp6bw"]
 [ext_resource type="AudioStream" uid="uid://cfnsqjp2x0qeu" path="res://Music/LD56_BirdPecking.mp3" id="4_hfgu5"]
 
-[sub_resource type="Curve" id="Curve_vhgm8"]
-_data = [Vector2(0.184154, 0), 0.0, 0.0, 0, 0, Vector2(0.603854, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_i1eua"]
+_data = [Vector2(0.208791, 0), 0.0, 0.0, 0, 0, Vector2(0.786813, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_qdw43"]
+_data = [Vector2(0.457143, 0), 0.0, 0.0, 0, 0, Vector2(0.881319, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_aseag"]
+_data = [Vector2(0.415385, 0), 0.0, 0.0, 0, 0, Vector2(0.956044, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [node name="SoundController" type="Node"]
 script = ExtResource("1_gdl24")
-mole_curve = SubResource("Curve_vhgm8")
-ant_curve = SubResource("Curve_vhgm8")
-bird_curve = SubResource("Curve_vhgm8")
+mole_curve = SubResource("Curve_i1eua")
+ant_curve = SubResource("Curve_qdw43")
+bird_curve = SubResource("Curve_aseag")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 
