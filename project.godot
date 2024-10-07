@@ -50,6 +50,10 @@ Environment=""
 2d_physics/layer_7="Beak"
 2d_physics/layer_8="Ants"
 
+[ld56]
+
+food_growth=10
+
 [phantom_camera]
 
 tips/show_jitter_tips=false

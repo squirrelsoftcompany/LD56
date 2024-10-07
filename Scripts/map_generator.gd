@@ -2,6 +2,11 @@ extends Node2D
 
 const FOOD_RAY_LENGTH = 20 # Short ray for Stone X Food spacing 
 
+
+# SIGNALS (It may not be the best place, but for LD jam, it's good enough)
+signal worm_scored(score:int)
+
+
 @export var stones : Array[Node]
 @export var foods: Array[Node]
 @export var moles: Array[Node]
@@ -9,8 +14,11 @@ const FOOD_RAY_LENGTH = 20 # Short ray for Stone X Food spacing
 @export var birds: Array[Node]
 @export var worm: Node # It may not be the best place, but for LD jam, it's good enough.
 @export var stone_spawn_radius : float = 300
+
+
 var rng = RandomNumberGenerator.new()
 var _stone_radius = 100 #Should be transform to a custome variable
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

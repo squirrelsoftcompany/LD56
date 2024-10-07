@@ -94,6 +94,7 @@ func update_nerves() :
 
 func add_to_lenght(increment : float):
 	length = length + increment
+	MapGenerator.worm_scored.emit(length)
 	pass
 
 func update_post_fx():
