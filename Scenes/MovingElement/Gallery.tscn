@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://vn8rbpcap1xu"]
+[gd_scene load_steps=7 format=3 uid="uid://vn8rbpcap1xu"]
 
 [ext_resource type="Script" path="res://Scripts/gallery.gd" id="1_d84on"]
 [ext_resource type="Script" path="res://addons/linepath2d/linepath2d.gd" id="1_l3hat"]
@@ -13,6 +13,14 @@ point_count = 2
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
 point_count = 1
 
+[sub_resource type="Gradient" id="Gradient_yfivl"]
+offsets = PackedFloat32Array(0, 0.2, 0.25, 0.75, 0.8, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.309804, 0.309804, 0.309804, 0.87451, 0.429688, 0.429688, 0.429688, 0.875477, 0.431373, 0.431373, 0.431373, 0.87451, 0.308594, 0.308594, 0.308594, 0.87451, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7ihmy"]
+gradient = SubResource("Gradient_yfivl")
+fill_from = Vector2(1, 1)
+
 [node name="Gallery" type="Node2D"]
 script = ExtResource("1_d84on")
 color = Color(0.175781, 0.0606084, 0, 1)
@@ -25,3 +33,5 @@ _curve = SubResource("Curve2D_nequj")
 width = 50.0
 width_profile = SubResource("Curve_hm42f")
 fill_default_color = Color(0.175781, 0.0606084, 0, 1)
+fill_texture = SubResource("GradientTexture2D_7ihmy")
+fill_texture_mode = 2

@@ -1,30 +1,39 @@
-[gd_scene load_steps=9 format=3 uid="uid://buefhu8ssv6c1"]
+[gd_scene load_steps=11 format=3 uid="uid://buefhu8ssv6c1"]
 
-[ext_resource type="Texture2D" uid="uid://bpt6ldy8jlbce" path="res://Sprites/Placeholder/sprite_rocks.png" id="1_jmuwe"]
 [ext_resource type="Script" path="res://Scripts/tile.gd" id="1_tbkde"]
+[ext_resource type="Shader" uid="uid://oc8qjl8cvwip" path="res://Map/Tile.tres" id="2_6dmyo"]
 [ext_resource type="PackedScene" uid="uid://b25u3e57lesyp" path="res://Scenes/Map/Elements/rocks.tscn" id="3_a05ji"]
 [ext_resource type="PackedScene" uid="uid://bi5inu67rib6r" path="res://Scenes/Map/Elements/court.tscn" id="4_1farg"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ljril"]
-albedo_texture = ExtResource("1_jmuwe")
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_stsvm"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gp66f"]
+width = 1024
+seamless = true
+noise = SubResource("FastNoiseLite_stsvm")
+
+[sub_resource type="Gradient" id="Gradient_0gpq6"]
+offsets = PackedFloat32Array(0.0819672, 0.377049, 0.590164, 0.827869, 1)
+colors = PackedColorArray(0.140625, 0.0932567, 0.0379102, 1, 0.260822, 0.18559, 0.0903697, 1, 0.336914, 0.236667, 0.144912, 1, 0.242188, 0.165059, 0.0674379, 1, 0.488281, 0.373707, 0.259272, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7xew7"]
+gradient = SubResource("Gradient_0gpq6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tiiam"]
+shader = ExtResource("2_6dmyo")
+shader_parameter/Texture2DParameter = SubResource("NoiseTexture2D_gp66f")
+shader_parameter/Texture2DParameter2 = SubResource("GradientTexture1D_7xew7")
 
 [sub_resource type="QuadMesh" id="QuadMesh_23k47"]
-material = SubResource("StandardMaterial3D_ljril")
-
-[sub_resource type="Gradient" id="Gradient_28a45"]
-colors = PackedColorArray(0.172549, 0.141176, 0.141176, 1, 0.172549, 0.141176, 0.141176, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_5whyq"]
-gradient = SubResource("Gradient_28a45")
 
 [node name="Tile" type="Node2D"]
 script = ExtResource("1_tbkde")
 
 [node name="BGMesh" type="MeshInstance2D" parent="."]
 z_index = -10
+material = SubResource("ShaderMaterial_tiiam")
 scale = Vector2(6000, 1500)
 mesh = SubResource("QuadMesh_23k47")
-texture = SubResource("GradientTexture2D_5whyq")
 
 [node name="SpriteRocks" parent="." instance=ExtResource("3_a05ji")]
 scale = Vector2(3, 1)

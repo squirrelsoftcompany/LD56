@@ -23,5 +23,6 @@ func _process(_delta: float) -> void:
 	size = get_parent().get_viewport_rect().size
 	
 	$FOV_Mask._curve = get_tree().get_first_node_in_group("WormBody").worm._curve
+	$FOV_Mask.width = get_tree().get_first_node_in_group("WormBody").worm.width*6
 	
 	#world_2d = get_parent().get_viewport().world_2d #debug

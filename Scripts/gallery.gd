@@ -25,9 +25,10 @@ func _ready():
 	get_tree().get_nodes_in_group("PathsOrigin")[0].add_child(gallery)
 
 func _process(_delta):
-	if (global_position - last_pos).length() > width * 5:
+	var dist : float = (global_position - last_pos).length()
+	if dist > width * 5:
 		gallery._curve = Curve2D.new()
-	if (global_position - last_pos).length() > width:
+	if dist > width:
 		gallery.curve.add_point(global_position)
 		last_pos = global_position
 		if gallery.curve.point_count > 32:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwnvianc6ysa"]
+[gd_scene load_steps=7 format=3 uid="uid://bwnvianc6ysa"]
 
 [ext_resource type="Script" path="res://Scripts/fov_mask_manager.gd" id="1_x63f2"]
 [ext_resource type="Script" path="res://addons/linepath2d/linepath2d.gd" id="3_ar51a"]
@@ -10,8 +10,18 @@ _data = {
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_3dy8g"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0.205263, 1), 0.0, 0.0, 0, 0]
 point_count = 1
+
+[sub_resource type="Gradient" id="Gradient_lx8uc"]
+offsets = PackedFloat32Array(0.753521, 0.852113, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.857143, 0.857143, 0.857143, 0.857143, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3n6xg"]
+gradient = SubResource("Gradient_lx8uc")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
 
 [node name="FOV_Mask_VP" type="SubViewport"]
 disable_3d = true
@@ -33,6 +43,8 @@ _curve = SubResource("Curve2D_vykjr")
 width = 100.0
 width_profile = SubResource("Curve_3dy8g")
 fill_default_color = Color(1, 0, 0, 1)
+fill_texture = SubResource("GradientTexture2D_3n6xg")
+fill_texture_mode = 2
 cap_joint_mode = 2
-cap_begin_cap = 2
+cap_begin_cap = 1
 cap_end_cap = 2

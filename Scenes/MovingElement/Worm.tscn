@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctey2y2gj1nsf"]
+[gd_scene load_steps=10 format=3 uid="uid://ctey2y2gj1nsf"]
 
 [ext_resource type="Script" path="res://Scripts/worm.gd" id="1_va3wr"]
 [ext_resource type="Script" path="res://addons/linepath2d/linepath2d.gd" id="2_bub8w"]
@@ -18,6 +18,14 @@ point_count = 2
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
 point_count = 1
 
+[sub_resource type="Gradient" id="Gradient_72lsd"]
+offsets = PackedFloat32Array(0, 0.084507, 0.908451, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0.870588)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hv160"]
+gradient = SubResource("Gradient_72lsd")
+fill_from = Vector2(1, 1)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_65csl"]
 radius = 25.0
 height = 100.0
@@ -34,6 +42,9 @@ _curve = SubResource("Curve2D_qtxc4")
 width = 50.0
 width_profile = SubResource("Curve_hm42f")
 fill_default_color = Color(0.414063, 0.259431, 0.300101, 1)
+fill_texture = SubResource("GradientTexture2D_hv160")
+fill_texture_mode = 2
+cap_joint_mode = 1
 
 [node name="Gallery" parent="." instance=ExtResource("3_au4qk")]
 

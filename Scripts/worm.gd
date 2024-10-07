@@ -101,7 +101,7 @@ func update_post_fx():
 		var prog = 1-(_damaged/healing_time)
 		environment.glow_bloom = 0.3 + (0.2*damage_fx.sample(prog))
 		environment.adjustment_saturation = 1 - (0.8*damage_fx.sample(prog))
-		environment.adjustment_brightness = 1 +pow(1-prog,5)
+		environment.adjustment_brightness = 1 +(pow(1-prog,5))/0.75
 
 func _on_contact(culprit : Node2D):
 	if culprit.is_in_group("Damager") and _invincibility <= 0:
