@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://u3tu66r83xvx"]
+
+[ext_resource type="Script" path="res://Scripts/combo_score.gd" id="1_jr53p"]
+
+[node name="InGameUI" type="CanvasLayer"]
+
+[node name="ComboScore" type="RichTextLabel" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -579.0
+offset_top = -50.0
+offset_right = 579.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(579, 25)
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[center]PLACEHOLDER[center]"
+scroll_active = false
+script = ExtResource("1_jr53p")

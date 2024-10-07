@@ -4,6 +4,7 @@ const FOOD_RAY_LENGTH = 20 # Short ray for Stone X Food spacing
 
 
 # SIGNALS (It may not be the best place, but for LD jam, it's good enough)
+@warning_ignore("unused_signal")
 signal worm_scored(score:int)
 
 

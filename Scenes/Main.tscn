@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://cefracuibowbm"]
+[gd_scene load_steps=11 format=3 uid="uid://cefracuibowbm"]
 
 [ext_resource type="PackedScene" uid="uid://c8vq54nywemk5" path="res://Scenes/Camera/fov.tscn" id="1_c7ibn"]
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="1_uswxo"]
 [ext_resource type="PackedScene" uid="uid://png6f8xxnfrf" path="res://Map/Map.tscn" id="7_drgsk"]
-[ext_resource type="PackedScene" uid="uid://bmaxtsl24lset" path="res://Scenes/SoundController.tscn" id="8_686k5"]
-[ext_resource type="PackedScene" uid="uid://7qe3rw60hs41" path="res://assets/VFX/world_environment.tscn" id="9_1tfr2"]
+[ext_resource type="PackedScene" path="res://Scenes/SoundController.tscn" id="8_686k5"]
+[ext_resource type="PackedScene" path="res://assets/VFX/world_environment.tscn" id="9_1tfr2"]
 [ext_resource type="PackedScene" uid="uid://c2qpkirs2uam5" path="res://Scenes/MovingElement/worm_controller.tscn" id="9_ixjsp"]
 [ext_resource type="PackedScene" uid="uid://bry30wt416xid" path="res://Scenes/HungryBird/hungry_bird.tscn" id="9_stxcb"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="9_uljwb"]
+[ext_resource type="PackedScene" uid="uid://u3tu66r83xvx" path="res://Scenes/UI/in_game_ui.tscn" id="10_tvjpu"]
 [ext_resource type="PackedScene" uid="uid://bwnvianc6ysa" path="res://Scenes/Camera/fov_mask.tscn" id="15_iuhcr"]
 
 [node name="Main" type="Node2D"]
@@ -37,4 +38,7 @@ canvas_cull_mask = 4293918722
 [node name="HungryBird" parent="." instance=ExtResource("9_stxcb")]
 position = Vector2(0, -2000)
 ground_level = -750.0
+
 [node name="WorldEnvironment" parent="." instance=ExtResource("9_1tfr2")]
+
+[node name="InGameUI" parent="." instance=ExtResource("10_tvjpu")]
