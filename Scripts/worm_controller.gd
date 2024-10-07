@@ -38,10 +38,6 @@ func _process(delta: float) -> void:
 			else:
 				_food.hide_indicator()
 	_near_foods = _tmp_near_foods
-	
-	# Draw food indicator or hide it if to far
-	#for _food in _near_foods:
-		#_food.show_indicator(global_position + (_direction.normalized() * 50))
 
 
 static func _compute_rotation(target_direction : Vector2, initial_rotation: float) -> float:
