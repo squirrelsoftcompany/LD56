@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2qpkirs2uam5"]
+[gd_scene load_steps=7 format=3 uid="uid://c2qpkirs2uam5"]
 
 [ext_resource type="Script" path="res://Scripts/worm_controller.gd" id="1_44qbw"]
 [ext_resource type="Script" path="res://Scripts/worm_head_collision.gd" id="2_mhdyn"]
 [ext_resource type="PackedScene" uid="uid://ctey2y2gj1nsf" path="res://Scenes/MovingElement/Worm.tscn" id="2_oe58f"]
+[ext_resource type="AudioStream" uid="uid://b7sf2bxj1ff1r" path="res://assets/audio/sfx/Worm-Food.wav" id="3_ynta3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ltyw"]
 
@@ -19,14 +20,19 @@ max_rotation_speed_in_degrees = 60
 max_forward_speed = 50
 food_detector = NodePath("FoodDetector")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("food_sound")]
 collision_mask = 44
 script = ExtResource("2_mhdyn")
+food_sound = NodePath("EatSound")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-7.5, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_8ltyw")
+
+[node name="EatSound" type="AudioStreamPlayer" parent="Area2D"]
+stream = ExtResource("3_ynta3")
+bus = &"Sfx"
 
 [node name="Worm" parent="." instance=ExtResource("2_oe58f")]
 start_width = 25.0

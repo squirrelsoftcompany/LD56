@@ -56,11 +56,3 @@ func _on_food_detector_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Food"):
 		_near_foods.push_back(area.get_parent())
 	pass # Replace with function body.
-
-
-#func _on_food_detector_area_exited(area: Area2D) -> void:
-	#if area.is_in_group("Food"):
-		#var _index = _near_foods.find(area.get_parent())
-		#_near_foods[_index].hide_indicator()
-		#_near_foods.remove_at(_index)
-	#pass # Replace with function body.
