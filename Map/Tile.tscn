@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://buefhu8ssv6c1"]
 
 [ext_resource type="Script" path="res://Scripts/tile.gd" id="1_tbkde"]
-[ext_resource type="Shader" uid="uid://oc8qjl8cvwip" path="res://Map/Tile.tres" id="2_6dmyo"]
+[ext_resource type="Shader" uid="uid://cggclg6yeiiye" path="res://Map/Tile.tres" id="2_6dmyo"]
 [ext_resource type="PackedScene" uid="uid://b25u3e57lesyp" path="res://Scenes/Map/Elements/rocks.tscn" id="3_a05ji"]
 [ext_resource type="PackedScene" uid="uid://bi5inu67rib6r" path="res://Scenes/Map/Elements/court.tscn" id="4_1farg"]
 

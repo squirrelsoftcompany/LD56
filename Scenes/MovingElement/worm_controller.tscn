@@ -24,7 +24,6 @@ food_detector = NodePath("FoodDetector")
 collision_mask = 44
 script = ExtResource("2_mhdyn")
 food_sound = NodePath("EatSound")
-point_by_food = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mouth"]
 position = Vector2(-7.5, 0)

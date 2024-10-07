@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c2qpkirs2uam5" path="res://Scenes/MovingElement/worm_controller.tscn" id="9_ixjsp"]
 [ext_resource type="PackedScene" uid="uid://bry30wt416xid" path="res://Scenes/HungryBird/hungry_bird.tscn" id="9_stxcb"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="9_uljwb"]
-[ext_resource type="PackedScene" uid="uid://u3tu66r83xvx" path="res://Scenes/UI/in_game_ui.tscn" id="10_tvjpu"]
+[ext_resource type="PackedScene" uid="uid://pgximhvppys1" path="res://Scenes/UI/in_game_ui.tscn" id="10_tvjpu"]
 [ext_resource type="PackedScene" uid="uid://bwnvianc6ysa" path="res://Scenes/Camera/fov_mask.tscn" id="15_iuhcr"]
 
 [node name="Main" type="Node2D"]
