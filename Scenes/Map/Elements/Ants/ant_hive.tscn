@@ -93,6 +93,7 @@ texture = SubResource("GradientTexture2D_e2mbx")
 lifetime = 8.0
 
 [node name="Area2D" type="Area2D" parent="Polygon2D" groups=["Damager"]]
+collision_layer = 129
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Polygon2D/Area2D"]
 

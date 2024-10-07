@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctey2y2gj1nsf"]
+[gd_scene load_steps=7 format=3 uid="uid://ctey2y2gj1nsf"]
 
 [ext_resource type="Script" path="res://Scripts/worm.gd" id="1_va3wr"]
 [ext_resource type="Script" path="res://addons/linepath2d/linepath2d.gd" id="2_bub8w"]
@@ -13,6 +13,10 @@ point_count = 2
 [sub_resource type="Curve" id="Curve_hm42f"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
 point_count = 1
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_65csl"]
+radius = 25.0
+height = 100.0
 
 [node name="Worm" type="Node2D" groups=["WormBody"]]
 script = ExtResource("1_va3wr")
@@ -29,3 +33,17 @@ fill_default_color = Color(0.414063, 0.259431, 0.300101, 1)
 [node name="Gallery" parent="." instance=ExtResource("3_au4qk")]
 
 [node name="Butt" type="Node2D" parent="." groups=["WormBody"]]
+
+[node name="Skin" type="Node2D" parent="."]
+
+[node name="Nerve" type="Area2D" parent="Skin"]
+disable_mode = 2
+collision_mask = 208
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Skin/Nerve"]
+z_index = 1000
+shape = SubResource("CapsuleShape2D_65csl")
+debug_color = Color(0.701961, 0, 0.609829, 0.639216)
+
+[connection signal="area_entered" from="Skin/Nerve" to="." method="_on_contact"]
+[connection signal="body_entered" from="Skin/Nerve" to="." method="_on_contact"]

@@ -46,6 +46,8 @@ FOVMask=""
 2d_physics/layer_4="Court"
 2d_physics/layer_5="Mole"
 2d_physics/layer_6="Food"
+2d_physics/layer_7="Beak"
+2d_physics/layer_8="Ants"
 
 [phantom_camera]
 

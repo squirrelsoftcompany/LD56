@@ -29,6 +29,7 @@ color = Color(0.84375, 0.638603, 0.0231618, 1)
 polygon = PackedVector2Array(-81.175, -247, -0.175, -247, -1.175, 1, -57.175, -149)
 
 [node name="Area2D" type="Area2D" parent="Beak" groups=["Damager"]]
+collision_layer = 64
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Beak/Area2D"]
 polygon = PackedVector2Array(-81.175, -246, -56.175, -142, -0.175, 12, 64.825, -120, 91.825, -250)
