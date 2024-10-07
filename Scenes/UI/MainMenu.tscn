@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cx11qj2svpv01"]
+[gd_scene load_steps=34 format=3 uid="uid://cx11qj2svpv01"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu_UI.gd" id="1_e03tb"]
 [ext_resource type="Texture2D" uid="uid://cgjrknw2cpf5v" path="res://Sprites/Placeholder/sprite_mole.png" id="2_h0wsj"]
@@ -63,11 +63,27 @@ point_count = 12
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="Gradient" id="Gradient_yfivl"]
+offsets = PackedFloat32Array(0, 0.2, 0.25, 0.75, 0.8, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.309804, 0.309804, 0.309804, 0.87451, 0.429688, 0.429688, 0.429688, 0.875477, 0.431373, 0.431373, 0.431373, 0.87451, 0.308594, 0.308594, 0.308594, 0.87451, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7ihmy"]
+gradient = SubResource("Gradient_yfivl")
+fill_from = Vector2(1, 1)
+
 [sub_resource type="Curve2D" id="Curve2D_oeo18"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 368, 48, 0, 0, 0, 0, 440, 66, 0, 0, 0, 0, 515, 70, 0, 0, 0, 0, 587, 81, 0, 0, 0, 0, 654, 76, 0, 0, 0, 0, 713.387, 74.0203, 0, 0, 0, 0, 760, 82)
 }
 point_count = 7
+
+[sub_resource type="Gradient" id="Gradient_72lsd"]
+offsets = PackedFloat32Array(0, 0.084507, 0.908451, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0.870588)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hv160"]
+gradient = SubResource("Gradient_72lsd")
+fill_from = Vector2(1, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -94,6 +110,28 @@ offset_bottom = 169.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 50
 text = "A TINY WORM'S LIFE"
+
+[node name="TinyTitle" type="TextureRect" parent="TitleLable"]
+self_modulate = Color(1, 0, 0, 1)
+z_index = -9
+layout_mode = 0
+offset_left = 40.0
+offset_top = -9.0
+offset_right = 337.0
+offset_bottom = 184.0
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("12_eurct")
+
+[node name="TinyTitle2" type="TextureRect" parent="TitleLable"]
+self_modulate = Color(1, 1, 0, 1)
+z_index = -10
+layout_mode = 0
+offset_left = 32.0
+offset_top = -13.0
+offset_right = 329.0
+offset_bottom = 180.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_eurct")
 
 [node name="StartButton" type="Button" parent="."]
 layout_mode = 1
@@ -363,6 +401,8 @@ _curve = SubResource("Curve2D_p154j")
 width = 30.0
 width_profile = SubResource("Curve_oqech")
 fill_default_color = Color(0.175781, 0.0606084, 0, 1)
+fill_texture = SubResource("GradientTexture2D_7ihmy")
+fill_texture_mode = 2
 cap_begin_cap = 2
 cap_end_cap = 2
 
@@ -371,32 +411,13 @@ z_index = 1
 curve = SubResource("Curve2D_oeo18")
 script = ExtResource("6_xkyuw")
 _curve = SubResource("Curve2D_oeo18")
+width = 10.0
 width_profile = SubResource("Curve_oqech")
 fill_default_color = Color(0.414063, 0.259431, 0.300101, 1)
+fill_texture = SubResource("GradientTexture2D_hv160")
+fill_texture_mode = 2
 cap_begin_cap = 2
 cap_end_cap = 2
-
-[node name="TinyTitle" type="TextureRect" parent="."]
-self_modulate = Color(1, 0, 0, 1)
-z_index = 10
-layout_mode = 0
-offset_left = 373.0
-offset_top = 91.0
-offset_right = 670.0
-offset_bottom = 284.0
-scale = Vector2(0.45, 0.45)
-texture = ExtResource("12_eurct")
-
-[node name="TinyTitle2" type="TextureRect" parent="."]
-self_modulate = Color(1, 1, 0, 1)
-z_index = 9
-layout_mode = 0
-offset_left = 365.0
-offset_top = 87.0
-offset_right = 662.0
-offset_bottom = 280.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("12_eurct")
 
 [connection signal="mouse_entered" from="StartButton" to="." method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
