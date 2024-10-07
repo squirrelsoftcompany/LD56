@@ -14,7 +14,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+	$GAME_OVER.visible = false
+	$ButtonContainer.visible = false
 
 
 func game_over():
