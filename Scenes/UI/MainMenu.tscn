@@ -268,7 +268,7 @@ size_flags_horizontal = 3
 theme_override_font_sizes/normal_font_size = 14
 bbcode_enabled = true
 text = "[b]Mole[/b]
-Do its life but keep your distance to not get chewed"
+Live its life, but keep your distance to not get chewed"
 
 [node name="MoleSound" type="Button" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
@@ -343,7 +343,7 @@ size_flags_horizontal = 3
 theme_override_font_sizes/normal_font_size = 14
 bbcode_enabled = true
 text = "[b]Bird[/b]
-Beware of the surface, sharp beak"
+Beware of the surface : sharp beak !"
 
 [node name="BirdSound" type="Button" parent="VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(50, 0)
