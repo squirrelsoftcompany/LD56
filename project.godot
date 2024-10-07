@@ -35,6 +35,7 @@ AntHives="for distace calculation (ex: music...)"
 Damager="damaging ?"
 Stone=""
 FOVMask=""
+Environment=""
 
 [layer_names]
 

@@ -10,11 +10,13 @@ var width : float :
 var _invincibility : float = 0.1 #for safe spawning purposes
 var _damaged : float = 0
 var _valid_hit : bool = false # for simultateous hits
+var environment : Environment
 
 @export var start_width : float = 50
 @export var length : float = 300
 @export var invincibility_time : float = 1
-@export var healing_time : float = 1
+@export var healing_time : float = 7
+@export var damage_fx : Curve = Curve.new()
 
 @onready var nerves : Array[Area2D] = [$Skin/Nerve]
 
@@ -31,6 +33,7 @@ func _ready():
 	get_tree().get_nodes_in_group("PathsOrigin")[0].add_child(worm)
 	gallery.z_index = -4
 	MapGenerator.worm = self
+	environment = get_tree().get_nodes_in_group("Environment")[0].environment
 
 func _process(delta):
 	if _valid_hit:
@@ -45,6 +48,7 @@ func _process(delta):
 		_invincibility -= delta
 	if _damaged > 0:
 		_damaged -= delta
+		update_post_fx()
 	if gallery.curve.point_count > 2:
 		worm._curve = gallery.curve.duplicate()
 		var butt_progress : float = gallery.curve.get_baked_length()-length
@@ -62,13 +66,13 @@ func update_nerves() :
 	var segments : int = worm.curve.point_count -1
 	for i in segments:
 		var pos : Vector2 = (worm.curve.get_point_position(i)+worm.curve.get_point_position(i+1))/2
-		var length : float = (worm.curve.get_point_position(i+1)-worm.curve.get_point_position(i)).length()+ width
+		var height : float = (worm.curve.get_point_position(i+1)-worm.curve.get_point_position(i)).length()+ width
 		var angle : float = (worm.curve.get_point_position(i+1)-worm.curve.get_point_position(i)).angle()+PI/2
 		if i == nerves.size():
 			nerves.append(nerves[0].duplicate())
 			nerves[i].get_child(0).shape = CapsuleShape2D.new()
 			nerves[0].add_sibling(nerves[i])
-		nerves[i].get_child(0).shape.height = length
+		nerves[i].get_child(0).shape.height = height
 		nerves[i].global_position = pos
 		nerves[i].get_child(0).shape.radius = width/2
 		nerves[i].global_rotation = angle
@@ -81,6 +85,12 @@ func update_nerves() :
 func add_to_lenght(increment : float):
 	length = length + increment
 	pass
+
+func update_post_fx():
+	var prog = 1-(_damaged/healing_time)
+	environment.glow_bloom = 0.3 + (0.2*damage_fx.sample(prog))
+	environment.adjustment_saturation = 1 - (0.8*damage_fx.sample(prog))
+	environment.adjustment_brightness = 1 +pow(1-prog,5)
 
 func _on_contact(culprit : Node2D):
 	if culprit.is_in_group("Damager") and _invincibility <= 0:
