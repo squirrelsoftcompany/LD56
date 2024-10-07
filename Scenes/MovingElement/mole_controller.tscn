@@ -41,7 +41,9 @@ color = Color(0.125207, 0.0351766, 0.000433002, 1)
 [node name="Tremor" parent="." instance=ExtResource("4_atguy")]
 z_index = -1
 continuous = true
-size = 300
+size = 500
+warning_length = 0.0
+max_alpha = 0.8
 
 [node name="Area2D" type="Area2D" parent="." groups=["Damager"]]
 position = Vector2(25, 0)
