@@ -67,6 +67,7 @@ func attack():
 		beak.visible = true
 		beak.global_position.x = target.x
 		beak.position.y = -400
+		beak.get_child(1).monitorable = true
 	if (not impact) and beak.position.y > 0:
 		var bam : Node2D = tremor.instantiate()
 		bam.warning_length = 0.8
@@ -81,6 +82,7 @@ func attack():
 		status = IDLE
 		beak.visible = false
 		impact = false
+		beak.get_child(1).monitorable = false
 
 func land():
 	if status == FLIGHT:
