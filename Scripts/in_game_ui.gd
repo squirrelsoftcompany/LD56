@@ -10,12 +10,13 @@ extends CanvasLayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	MapGenerator.game_over.connect(game_over)
+	$GAME_OVER.visible = false
+	$ButtonContainer.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	$GAME_OVER.visible = false
-	$ButtonContainer.visible = false
+	pass
 
 
 func game_over():
