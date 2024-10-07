@@ -112,6 +112,8 @@ func death():
 	if worm.curve.point_count > 0 :
 		worm.curve.remove_point(0)
 	else:
+		environment.glow_bloom = 0.3
+		environment.adjustment_saturation = 1
+		environment.adjustment_brightness = 1
 		MapGenerator.game_over.emit()
-		#queue_free()
 		pass
