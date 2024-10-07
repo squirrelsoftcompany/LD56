@@ -16,7 +16,7 @@ var death_timer : float = 0
 
 @export var start_width : float = 50
 @export var length : float = 300
-@export var invincibility_time : float = 1
+@export var invincibility_time : float = 1.5
 @export var healing_time : float = 7
 @export var damage_fx : Curve = Curve.new()
 
