@@ -20,6 +20,10 @@ enum {FLIGHT,LANDING,IDLE,ATTACK,TAKE_OFF}
 @onready var feets : Array[Polygon2D] = [$Foot,$Foot2]
 @onready var beak : Polygon2D = $Beak
 
+func _ready():
+	MapGenerator.birds.push_back(self)
+	pass
+	
 func _process(delta):
 	if status == FLIGHT:
 		if worm.global_position.y < detection_depth+ground_level:

@@ -45,3 +45,6 @@ tween_resource = SubResource("Resource_ywpxq")
 
 [node name="FOV_Mask_VP" parent="." groups=["FOVMask"] instance=ExtResource("15_iuhcr")]
 canvas_cull_mask = 4293918722
+
+[node name="HungryBird" parent="." instance=ExtResource("9_stxcb")]
+ground_level = -750.0
