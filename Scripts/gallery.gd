@@ -30,6 +30,8 @@ func _process(_delta):
 	if (global_position - last_pos).length() > width:
 		gallery.curve.add_point(global_position)
 		last_pos = global_position
+		if gallery.curve.point_count > 32:
+			gallery.curve.remove_point(0)
 	else:
 		gallery.curve.set_point_position(gallery.curve.point_count-1,global_position)
 						#----- move test -----
