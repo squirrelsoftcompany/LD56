@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cx11qj2svpv01"]
+[gd_scene load_steps=30 format=3 uid="uid://cx11qj2svpv01"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu_UI.gd" id="1_e03tb"]
 [ext_resource type="Texture2D" uid="uid://cgjrknw2cpf5v" path="res://Sprites/Placeholder/sprite_mole.png" id="2_h0wsj"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://bk6pe8yqw378c" path="res://Music/LD56_Base.mp3" id="7_byva6"]
 [ext_resource type="AudioStream" uid="uid://b8h3h8xjjbs7p" path="res://Music/LD56_MoleDrum.mp3" id="7_iyyrm"]
 [ext_resource type="AudioStream" uid="uid://c5qul5qjxgmil" path="res://Music/LD56_AntNoise.mp3" id="8_6fgh3"]
+[ext_resource type="Shader" uid="uid://cggclg6yeiiye" path="res://Map/Tile.tres" id="8_bdbql"]
 [ext_resource type="AudioStream" uid="uid://cxs2b2t47n35k" path="res://assets/audio/sfx/Menu-Select.wav" id="9_0jwha"]
 [ext_resource type="AudioStream" uid="uid://cfnsqjp2x0qeu" path="res://Music/LD56_BirdPecking.mp3" id="9_5bms2"]
 [ext_resource type="Texture2D" uid="uid://ewmrt745w5bg" path="res://Sprites/Placeholder/tiny_title.png" id="12_eurct"]
@@ -26,6 +27,31 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_5o1vq"]
 gradient = SubResource("Gradient_nv5gx")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_stsvm"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gp66f"]
+width = 1024
+seamless = true
+noise = SubResource("FastNoiseLite_stsvm")
+
+[sub_resource type="Gradient" id="Gradient_0gpq6"]
+offsets = PackedFloat32Array(0.0819672, 0.377049, 0.590164, 0.827869, 1)
+colors = PackedColorArray(0.140625, 0.0932567, 0.0379102, 1, 0.260822, 0.18559, 0.0903697, 1, 0.336914, 0.236667, 0.144912, 1, 0.242188, 0.165059, 0.0674379, 1, 0.488281, 0.373707, 0.259272, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7xew7"]
+gradient = SubResource("Gradient_0gpq6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0vtmf"]
+shader = ExtResource("8_bdbql")
+shader_parameter/Texture2DParameter = SubResource("NoiseTexture2D_gp66f")
+shader_parameter/Texture2DParameter2 = SubResource("GradientTexture1D_7xew7")
+
+[sub_resource type="Gradient" id="Gradient_xulsa"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0wwg5"]
+gradient = SubResource("Gradient_xulsa")
 
 [sub_resource type="Curve2D" id="Curve2D_p154j"]
 _data = {
@@ -127,20 +153,22 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer4"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 
 [node name="Label" type="RichTextLabel" parent="VBoxContainer/HBoxContainer4/Panel"]
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 offset_left = 10.0
-offset_top = 20.0
-offset_right = 90.0
-offset_bottom = 45.0
+offset_top = 10.0
+offset_right = 160.0
+offset_bottom = 53.0
 size_flags_horizontal = 3
 theme_override_font_sizes/normal_font_size = 14
 bbcode_enabled = true
-text = "[center][b]FOOD[/b][/center]"
+text = "[center][b]FOOD[/b]
+close to surface[/center]"
+fit_content = true
 
 [node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer4"]
 material = SubResource("ShaderMaterial_20h2g")
@@ -286,8 +314,9 @@ size_flags_horizontal = 10
 icon = ExtResource("3_oqgdf")
 expand_icon = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
 z_index = -100
+material = SubResource("ShaderMaterial_0vtmf")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -295,7 +324,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.242188, 0.176621, 0.0983762, 1)
+texture = SubResource("GradientTexture2D_0wwg5")
 
 [node name="ValidationSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_47o2l")
