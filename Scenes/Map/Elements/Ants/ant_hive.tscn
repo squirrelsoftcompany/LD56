@@ -72,7 +72,7 @@ frequency = 0.0031
 noise = SubResource("FastNoiseLite_lhxbj")
 
 [node name="AntHive" type="Polygon2D" groups=["AntHives"]]
-z_index = -7
+z_index = -3
 color = Color(0.298039, 0.141176, 0.152941, 1)
 polygon = PackedVector2Array(-25, -13, -5, -24, 16, -24, 25, -13, 25, 2, 10, 10, -17, 7, -32, 3)
 script = ExtResource("1_4y2bq")
@@ -86,6 +86,8 @@ warning_length = 0.0
 max_alpha = 0.1
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Polygon2D"]
+z_index = 5
+z_as_relative = false
 process_material = SubResource("ParticleProcessMaterial_3c41m")
 texture = SubResource("GradientTexture2D_e2mbx")
 lifetime = 8.0
@@ -96,7 +98,6 @@ lifetime = 8.0
 
 [node name="LinePath2D" type="Path2D" parent="."]
 show_behind_parent = true
-z_index = -7
 curve = SubResource("Curve2D_3spa3")
 script = ExtResource("2_u81oa")
 _curve = SubResource("Curve2D_3spa3")
