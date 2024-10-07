@@ -14,7 +14,7 @@ var status : int = 0
 var tremor : PackedScene = preload("res://assets/VFX/Tremor.tscn")
 var impact : bool = false
 
-enum {FLIGHT,LANDING,IDLE,ATTACK,TAKE_OFF}
+enum {FLIGHT,LANDING,IDLE,ATTACK,TAKE_OFF,MOVING}
 
 @onready var worm : Node2D = MapGenerator.worm
 @onready var feets : Array[Polygon2D] = [$Foot,$Foot2]
@@ -37,7 +37,18 @@ func _process(delta):
 		timer += delta
 		land()
 	elif status == IDLE:
-		move()
+		if worm.global_position.x-global_position.x >0:
+			feets[0].scale.x = 1
+			feets[1].scale.x = 1
+			beak.scale.x = 1
+		else:
+			feets[0].scale.x = -1
+			feets[1].scale.x = -1
+			beak.scale.x = -1
+		if worm.global_position.distance_to(global_position) > 600:
+			move()
+			aiming_timer = 0
+			target = Vector2((worm.global_position.x),0)
 		if worm.global_position.y < attack_depth+ground_level:
 			aiming_timer += delta
 			if aiming_timer > attack_chargeup:
@@ -54,6 +65,9 @@ func _process(delta):
 				aiming_timer = 0
 		elif timer > 0:
 			timer -= delta*0.75
+	elif status == MOVING :
+		move()
+		aiming_timer += delta
 	elif status == ATTACK :
 		aiming_timer += delta
 		attack()
@@ -68,9 +82,16 @@ func attack():
 		beak.global_position.x = target.x
 		beak.position.y = -400
 		beak.get_child(1).monitorable = true
+		var bam : Node2D = tremor.instantiate()
+		bam.warning_length = 0.5
+		bam.size = 500
+		bam.max_alpha = 0.5
+		feets[0].add_child(bam)
+		bam = bam.duplicate()
+		feets[1].add_child(bam)
 	if (not impact) and beak.position.y > 0:
 		var bam : Node2D = tremor.instantiate()
-		bam.warning_length = 0.8
+		bam.warning_length = 0.5
 		bam.size = 800
 		bam.position = beak.position
 		add_child(bam)
@@ -101,6 +122,7 @@ func land():
 		var bam : Node2D = tremor.instantiate()
 		bam.warning_length = 1
 		bam.size = 500
+		bam.max_alpha = 0.5
 		feets[0].add_child(bam)
 		bam = bam.duplicate()
 		feets[1].add_child(bam)
@@ -118,5 +140,18 @@ func take_off():
 		feets[1].visible = false
 
 func move():
-	#TODO : move feets to follow worm
-	pass
+	if status == IDLE:
+		status = MOVING
+		global_position.x = target.x
+	global_position.y = ground_level -60 + 60*aiming_timer
+	if aiming_timer >= 1:
+		aiming_timer =0
+		status = IDLE
+		global_position.y = ground_level
+		var bam : Node2D = tremor.instantiate()
+		bam.warning_length = 0.8
+		bam.size = 500
+		bam.max_alpha = 0.5
+		feets[0].add_child(bam)
+		bam = bam.duplicate()
+		feets[1].add_child(bam)
