@@ -13,7 +13,19 @@ var target : Vector2
 var status : int = 0
 var tremor : PackedScene = preload("res://assets/VFX/Tremor.tscn")
 var impact : bool = false
+var beak_sound : AudioStreamPlaybackPolyphonic
+var foot_sound : AudioStreamPlaybackPolyphonic
 
+var sfx : Array[AudioStreamWAV]=[
+	preload("res://assets/audio/sfx/Beak-In.wav"),
+	preload("res://assets/audio/sfx/Beak-Out.wav"),
+	preload("res://assets/audio/sfx/Crow-Wing.wav"),
+	preload("res://assets/audio/sfx/Step.wav"),
+	preload("res://assets/audio/sfx/Crow-A.wav"),
+	preload("res://assets/audio/sfx/Crow-B.wav")
+]
+
+enum {BEAK,SCRAPE,WING,STEP,CROW_A,CROW_B}
 enum {FLIGHT,LANDING,IDLE,ATTACK,TAKE_OFF,MOVING}
 
 @onready var worm : Node2D = MapGenerator.worm
@@ -22,7 +34,6 @@ enum {FLIGHT,LANDING,IDLE,ATTACK,TAKE_OFF,MOVING}
 
 func _ready():
 	MapGenerator.birds.push_back(self)
-	pass
 	
 func _process(delta):
 	if status == FLIGHT:
@@ -31,6 +42,7 @@ func _process(delta):
 			if timer > detection_time:
 				target = worm.global_position
 				land()
+				
 		elif timer > 0:
 			timer -= delta*0.75
 	elif status == LANDING:
@@ -89,6 +101,10 @@ func attack():
 		feets[0].add_child(bam)
 		bam = bam.duplicate()
 		feets[1].add_child(bam)
+		if not $Beak/AudioStreamPlayer2DBeak.playing :
+			$Beak/AudioStreamPlayer2DBeak.play()
+		beak_sound = $Beak/AudioStreamPlayer2DBeak.get_stream_playback()
+		beak_sound.play_stream(sfx[CROW_A])
 	if (not impact) and beak.position.y > 0:
 		var bam : Node2D = tremor.instantiate()
 		bam.warning_length = 0.5
@@ -96,6 +112,11 @@ func attack():
 		bam.position = beak.position
 		add_child(bam)
 		impact = true
+		if not $Beak/AudioStreamPlayer2DBeak.playing :
+			$Beak/AudioStreamPlayer2DBeak.play()
+		beak_sound = $Beak/AudioStreamPlayer2DBeak.get_stream_playback()
+		beak_sound.play_stream(sfx[BEAK])
+		beak_sound.play_stream(sfx[STEP])
 	var prog = (aiming_timer-(attack_chargeup)) / 1.5
 	beak.position.y = -400 +(550*beak_anim.sample(prog))
 	if aiming_timer > attack_chargeup + 1.5:
@@ -113,6 +134,11 @@ func land():
 		global_position = Vector2(target.x,ground_level)
 		feets[0].position = Vector2(-75,-500)
 		feets[1].position = Vector2(75,-500)
+		if not $AudioStreamPlayer2D.playing :
+			$AudioStreamPlayer2D.play()
+		foot_sound = $AudioStreamPlayer2D.get_stream_playback()
+		foot_sound.play_stream(sfx[CROW_B])
+		foot_sound.play_stream(sfx[WING])
 	var prog = (timer -detection_time) /2
 	feets[0].position = Vector2(-50,-500+500*prog)
 	feets[1].position = Vector2(50,-500+500*prog)
@@ -126,10 +152,22 @@ func land():
 		feets[0].add_child(bam)
 		bam = bam.duplicate()
 		feets[1].add_child(bam)
+		if not $AudioStreamPlayer2D.playing :
+			$AudioStreamPlayer2D.play()
+		foot_sound = $AudioStreamPlayer2D.get_stream_playback()
+		foot_sound.play_stream(sfx[STEP])
+		foot_sound.play_stream(sfx[SCRAPE])
 
 func take_off():
 	if status == IDLE:
 		status = TAKE_OFF
+		if not $AudioStreamPlayer2D.playing :
+			$AudioStreamPlayer2D.play()
+		foot_sound = $AudioStreamPlayer2D.get_stream_playback()
+		foot_sound.play_stream(sfx[CROW_B])
+		foot_sound.play_stream(sfx[WING])
+		foot_sound.play_stream(sfx[WING],0.1)
+		foot_sound.play_stream(sfx[STEP])
 	var prog = (timer -detection_time) /2
 	feets[0].position = Vector2(-50,-500*prog)
 	feets[1].position = Vector2(50,-500*prog)
@@ -143,6 +181,10 @@ func move():
 	if status == IDLE:
 		status = MOVING
 		global_position.x = target.x
+		if not $AudioStreamPlayer2D.playing :
+			$AudioStreamPlayer2D.play()
+		foot_sound = $AudioStreamPlayer2D.get_stream_playback()
+		foot_sound.play_stream(sfx[STEP])
 	global_position.y = ground_level -60 + 60*aiming_timer
 	if aiming_timer >= 1:
 		aiming_timer =0
@@ -155,3 +197,7 @@ func move():
 		feets[0].add_child(bam)
 		bam = bam.duplicate()
 		feets[1].add_child(bam)
+		if not $AudioStreamPlayer2D.playing :
+			$AudioStreamPlayer2D.play()
+		foot_sound = $AudioStreamPlayer2D.get_stream_playback()
+		foot_sound.play_stream(sfx[STEP])
