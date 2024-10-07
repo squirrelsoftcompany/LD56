@@ -17,7 +17,7 @@ collision_mask = 14
 floor_constant_speed = true
 script = ExtResource("1_44qbw")
 max_rotation_speed_in_degrees = 80
-max_forward_speed = 50
+max_forward_speed = 70
 food_detector = NodePath("FoodDetector")
 
 [node name="Mouth" type="Area2D" parent="." node_paths=PackedStringArray("food_sound")]
