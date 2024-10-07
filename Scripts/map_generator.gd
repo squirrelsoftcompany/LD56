@@ -6,6 +6,10 @@ const FOOD_RAY_LENGTH = 20 # Short ray for Stone X Food spacing
 # SIGNALS (It may not be the best place, but for LD jam, it's good enough)
 @warning_ignore("unused_signal")
 signal worm_scored(score:int)
+@warning_ignore("unused_signal")
+signal game_over()
+@warning_ignore("unused_signal")
+signal scene_changed()
 
 
 @export var stones : Array[Node]
@@ -23,7 +27,15 @@ var _stone_radius = 100 #Should be transform to a custome variable
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.	
+	scene_changed.connect(clean_generator)
+
+
+func clean_generator():
+	stones.clear()
+	foods.clear()
+	moles.clear()
+	ants.clear()
+	birds.clear()
 
 
 func _random_stone_pos(tile : Tile) -> Vector2:

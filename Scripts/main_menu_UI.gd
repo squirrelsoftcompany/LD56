@@ -35,6 +35,7 @@ func _on_start_button_pressed() -> void:
 		func(val): AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), val),
 		-8.4, -80, 2)
 	tween.tween_callback(get_tree().change_scene_to_file.bind("res://Scenes/Main.tscn"))
+	tween.tween_callback(MapGenerator.scene_changed.emit)
 	var tween2 := create_tween()
 	for i in range(0,10):
 		tween2.tween_property($StartButton, "self_modulate", Color(1,1,1,0), 0.25)

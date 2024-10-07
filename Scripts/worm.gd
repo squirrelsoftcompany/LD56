@@ -112,6 +112,6 @@ func death():
 	if worm.curve.point_count > 0 :
 		worm.curve.remove_point(0)
 	else:
-		#TODO : invoke game over GUI
+		MapGenerator.game_over.emit()
 		#queue_free()
 		pass
