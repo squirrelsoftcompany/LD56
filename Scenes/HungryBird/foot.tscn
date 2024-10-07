@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://digdbx7s42k"]
+
+[ext_resource type="Script" path="res://addons/linepath2d/linepath2d.gd" id="1_ijx5c"]
+
+[sub_resource type="Curve2D" id="Curve2D_5my0s"]
+_data = {
+"points": PackedVector2Array(-33.0105, 8.69908, 33.0105, -8.69908, 40, -18, 0, 0, 0, 0, 91, -28, -15.8166, -10.1503, 15.8166, 10.1503, 143, -11)
+}
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_0xn3s"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.605263, 0.857143), 0.0, 0.0, 0, 0, Vector2(1, 0.21978), -3.01587, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_15j7o"]
+_data = {
+"points": PackedVector2Array(19.7452, 8.13785, -19.7452, -8.13785, -9, -25, 0, 0, 0, 0, -33, -28, 2.06647, -13.7502, 0, 0, -50, -8)
+}
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_d1mov"]
+_data = [Vector2(0, 0.857143), 0.0, -1.31461, 0, 0, Vector2(0.568421, 0.659341), -0.278388, -0.278388, 0, 0, Vector2(1, 0.0659341), -3.01588, 0.0, 0, 0]
+point_count = 3
+
+[node name="Foot" type="Polygon2D"]
+color = Color(0.492188, 0.448345, 0.459492, 1)
+polygon = PackedVector2Array(49, -4, -6, 0, -18, -17, -20, -34, 4, -51, 2, -94, 32, -95, 35, -51, 52, -34)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.691406, 0.536728, 0.567908, 1)
+polygon = PackedVector2Array(-11, -34, -14, -18, -4, 0, 46, -5, 47, -34, 31, -52, 27, -93, 9, -92, 11, -50)
+
+[node name="Polygon2D" type="Polygon2D" parent="Polygon2D"]
+color = Color(0.513726, 0.545098, 0.627451, 1)
+polygon = PackedVector2Array(150, 0, 144, -15, 133, -26, 121, -8, 138, -7)
+
+[node name="LinePath2D" type="Path2D" parent="Polygon2D"]
+show_behind_parent = true
+curve = SubResource("Curve2D_5my0s")
+script = ExtResource("1_ijx5c")
+_curve = SubResource("Curve2D_5my0s")
+width = 30.0
+width_profile = SubResource("Curve_0xn3s")
+fill_default_color = Color(0.490196, 0.447059, 0.458824, 1)
+
+[node name="LinePath2D2" type="Path2D" parent="Polygon2D"]
+show_behind_parent = true
+curve = SubResource("Curve2D_15j7o")
+script = ExtResource("1_ijx5c")
+_curve = SubResource("Curve2D_15j7o")
+width = 30.0
+width_profile = SubResource("Curve_d1mov")
+fill_default_color = Color(0.592157, 0.501961, 0.482353, 1)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Polygon2D"]
+color = Color(0.514203, 0.546197, 0.628906, 1)
+polygon = PackedVector2Array(-53, -15, -42, -12, -51, -1)

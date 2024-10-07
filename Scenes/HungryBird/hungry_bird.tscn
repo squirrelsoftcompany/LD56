@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://bry30wt416xid"]
+
+[ext_resource type="Script" path="res://Scenes/HungryBird/hungry_bird.gd" id="1_1ftcu"]
+[ext_resource type="PackedScene" uid="uid://digdbx7s42k" path="res://Scenes/HungryBird/foot.tscn" id="2_qqh3i"]
+
+[sub_resource type="Curve" id="Curve_c8rqm"]
+_data = [Vector2(0, 0), 0.0, 0.052, 0, 0, Vector2(0.305, 1), 9.313, 0.0, 0, 1, Vector2(0.479, 1), 0.0, -3.897, 1, 0, Vector2(0.526316, 0.769231), 0.0, -1.62393, 0, 1, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[node name="HungryBird" type="Node2D"]
+script = ExtResource("1_1ftcu")
+beak_anim = SubResource("Curve_c8rqm")
+
+[node name="Foot" parent="." instance=ExtResource("2_qqh3i")]
+visible = false
+
+[node name="Foot2" parent="." instance=ExtResource("2_qqh3i")]
+visible = false
+
+[node name="Beak" type="Polygon2D" parent="."]
+visible = false
+z_index = 3
+position = Vector2(1.175, 0)
+color = Color(1, 0.756932, 0.0277282, 1)
+polygon = PackedVector2Array(88.825, -249, 61.825, -122, 0, 10, -1.175, -21, -0.175, -249)
+
+[node name="Polygon2D" type="Polygon2D" parent="Beak"]
+color = Color(0.84375, 0.638603, 0.0231618, 1)
+polygon = PackedVector2Array(-81.175, -247, -0.175, -247, -1.175, 1, -57.175, -149)
+
+[node name="Area2D" type="Area2D" parent="Beak" groups=["Damager"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Beak/Area2D"]
+polygon = PackedVector2Array(-81.175, -246, -56.175, -142, -0.175, 12, 64.825, -120, 91.825, -250)
