@@ -27,12 +27,12 @@ func _ready():
 
 func _process(_delta):
 	worm._curve = gallery.curve.duplicate()
+	var butt_progress : float = gallery.curve.get_baked_length()-length
+	var butt_pos : Vector2 = gallery.curve.sample_baked(butt_progress)
+	$Butt.global_position = butt_pos
 	if gallery.curve.get_baked_length() > length:
-		var butt_progress : float = gallery.curve.get_baked_length()-length
 		while worm.curve.get_baked_length() > length:
 			worm.curve.remove_point(0)
-		var butt_pos : Vector2 = gallery.curve.sample_baked(butt_progress)
-		$Butt.position = butt_pos
 		worm.curve.add_point(butt_pos,Vector2.ZERO,Vector2.ZERO,0)
 						#----- move test -----
 	#position += Vector2(1,randf_range(-0.5,1.2))
