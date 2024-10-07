@@ -11,6 +11,8 @@ var _invincibility : float = 0.1 #for safe spawning purposes
 var _damaged : float = 0
 var _valid_hit : bool = false # for simultateous hits
 var environment : Environment
+var dead : bool = false
+var death_timer : float = 0
 
 @export var start_width : float = 50
 @export var length : float = 300
@@ -33,32 +35,40 @@ func _ready():
 	get_tree().get_nodes_in_group("PathsOrigin")[0].add_child(worm)
 	gallery.z_index = -4
 	MapGenerator.worm = self
-	environment = get_tree().get_nodes_in_group("Environment")[0].environment
+	if get_tree().get_nodes_in_group("Environment").size() > 0 :
+		environment = get_tree().get_nodes_in_group("Environment")[0].environment
 
 func _process(delta):
-	if _valid_hit:
-		_invincibility = invincibility_time
-		_valid_hit=false
-		if _damaged <= 0:
-			_damaged = healing_time
-			print("aïe!")
-		else :
-			print("dead")
-	if _invincibility > 0:
-		_invincibility -= delta
 	if _damaged > 0:
 		_damaged -= delta
 		update_post_fx()
-	if gallery.curve.point_count > 2:
-		worm._curve = gallery.curve.duplicate()
-		var butt_progress : float = gallery.curve.get_baked_length()-length
-		var butt_pos : Vector2 = gallery.curve.sample_baked(butt_progress)
-		$Butt.global_position = butt_pos
-		if gallery.curve.get_baked_length() > length:
-			while worm.curve.get_baked_length() > length:
-				worm.curve.remove_point(0)
-			worm.curve.add_point(butt_pos,Vector2.ZERO,Vector2.ZERO,0)
-	update_nerves()
+	if dead :
+		death_timer += delta
+		if death_timer > 1:
+			death_timer = 1/pow(worm.curve.point_count,2)
+			death()
+		if _damaged< healing_time:
+			_damaged += delta
+	else:
+		if _valid_hit:
+			_invincibility = invincibility_time
+			_valid_hit=false
+			if _damaged <= 0:
+				_damaged = healing_time
+			else :
+				dead = true
+		if _invincibility > 0:
+			_invincibility -= delta
+		if gallery.curve.point_count > 2 and not dead:
+			worm._curve = gallery.curve.duplicate()
+			var butt_progress : float = gallery.curve.get_baked_length()-length
+			var butt_pos : Vector2 = gallery.curve.sample_baked(butt_progress)
+			$Butt.global_position = butt_pos
+			if gallery.curve.get_baked_length() > length:
+				while worm.curve.get_baked_length() > length:
+					worm.curve.remove_point(0)
+				worm.curve.add_point(butt_pos,Vector2.ZERO,Vector2.ZERO,0)
+		update_nerves()
 						#----- move test -----
 	#position += Vector2(1,randf_range(-0.5,1.2))
 
@@ -87,11 +97,20 @@ func add_to_lenght(increment : float):
 	pass
 
 func update_post_fx():
-	var prog = 1-(_damaged/healing_time)
-	environment.glow_bloom = 0.3 + (0.2*damage_fx.sample(prog))
-	environment.adjustment_saturation = 1 - (0.8*damage_fx.sample(prog))
-	environment.adjustment_brightness = 1 +pow(1-prog,5)
+	if environment != null:
+		var prog = 1-(_damaged/healing_time)
+		environment.glow_bloom = 0.3 + (0.2*damage_fx.sample(prog))
+		environment.adjustment_saturation = 1 - (0.8*damage_fx.sample(prog))
+		environment.adjustment_brightness = 1 +pow(1-prog,5)
 
 func _on_contact(culprit : Node2D):
 	if culprit.is_in_group("Damager") and _invincibility <= 0:
 		_valid_hit = true
+
+func death():
+	if worm.curve.point_count > 0 :
+		worm.curve.remove_point(0)
+	else:
+		#TODO : invoke game over GUI
+		#queue_free()
+		pass
