@@ -24,15 +24,15 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="2.9825758"
-     inkscape:cx="40.904241"
-     inkscape:cy="91.866901"
+     inkscape:zoom="1.4912879"
+     inkscape:cx="484.14528"
+     inkscape:cy="147.52349"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g4024" />
+     inkscape:current-layer="layer1" />
   <defs
      id="defs2">
     <inkscape:path-effect
@@ -348,5 +348,14 @@
            id="path3975" />
       </g>
     </g>
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.2;stop-color:#000000"
+       d="m 124.42214,25.33657 -3.20985,-10.278346 9.95395,-0.55009 6.60603,-7.6044477 9.1671,3.0435103 8.02016,-6.3053253 10.11507,7.6422747 14.474,0.1359 -0.66141,11.91817 9.56867,11.667263 -10.71406,7.471607 -5.72047,11.848374 -9.78022,-6.427088 -8.78703,6.677997 -11.74967,-6.020284 -12.96485,3.385741 -1.18998,-11.610075 -8.52783,-6.975014 z"
+       id="path338"
+       inkscape:label="tiny_title"
+       inkscape:export-filename="..\Sprites\Placeholder\tiny_title.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       sodipodi:nodetypes="ccccccccccccccccccc" />
   </g>
 </svg>
