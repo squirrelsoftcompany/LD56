@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvydd3g70447x"]
+
+[ext_resource type="Texture2D" uid="uid://888pwmsrvvqw" path="res://Sprites/Placeholder/food_indicator.png" id="1_dy3e0"]
+
+[node name="FoodIndicator" type="Node2D"]
+
+[node name="FoodIndicator" type="Sprite2D" parent="."]
+z_index = 500
+rotation = 1.5708
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_dy3e0")

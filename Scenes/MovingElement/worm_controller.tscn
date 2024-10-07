@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2qpkirs2uam5"]
+[gd_scene load_steps=6 format=3 uid="uid://c2qpkirs2uam5"]
 
 [ext_resource type="Script" path="res://Scripts/worm_controller.gd" id="1_44qbw"]
 [ext_resource type="Script" path="res://Scripts/worm_head_collision.gd" id="2_mhdyn"]
@@ -6,7 +6,10 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ltyw"]
 
-[node name="WormController" type="CharacterBody2D" groups=["WormHead"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_yqukb"]
+radius = 300.0
+
+[node name="WormController" type="CharacterBody2D" node_paths=PackedStringArray("food_detector") groups=["WormHead"]]
 z_index = 4
 position = Vector2(-210, 330)
 collision_mask = 14
@@ -14,6 +17,7 @@ floor_constant_speed = true
 script = ExtResource("1_44qbw")
 max_rotation_speed_in_degrees = 60
 max_forward_speed = 50
+food_detector = NodePath("FoodDetector")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 44
@@ -33,5 +37,12 @@ position = Vector2(-7.5, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_8ltyw")
 
+[node name="FoodDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="Shape" type="CollisionShape2D" parent="FoodDetector"]
+shape = SubResource("CircleShape2D_yqukb")
+
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="area_entered" from="FoodDetector" to="." method="_on_food_detector_area_entered"]
