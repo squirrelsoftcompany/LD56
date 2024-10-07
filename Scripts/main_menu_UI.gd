@@ -49,21 +49,21 @@ func _on_quit_button_pressed() -> void:
 
 
 func _on_mole_sound_pressed() -> void:
-	moleSound.volume_db = 0
-	antSound.volume_db = -80
-	birdSound.volume_db = -80
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Mole"), 0)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Ant"), -80)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Bird"), -80)
 
 
 func _on_ant_sound_pressed() -> void:
-	moleSound.volume_db = -80
-	antSound.volume_db = 0
-	birdSound.volume_db = -80
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Mole"), -80)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Ant"), 0)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Bird"), -80)
 
 
 func _on_bird_sound_pressed() -> void:
-	moleSound.volume_db = -80
-	antSound.volume_db = -80
-	birdSound.volume_db = 0
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Mole"), -80)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Ant"), -80)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Bird"), 0)
 
 
 func _on_start_button_mouse_entered() -> void:
