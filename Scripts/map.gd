@@ -21,7 +21,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# DEBUG SECTION 
 	_player_position = get_global_mouse_position() # WE SHOULD USE THE WORM POSITION BUT FOR NOW THE MOUSE GLOBAL POSITION IS OK
 	# END OF DEBUG SECTION

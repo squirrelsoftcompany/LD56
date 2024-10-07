@@ -14,7 +14,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var _nearest_mole_distance = _max_mole_distance
 	var _nearest_ant_distance = _max_ant_distance
 	var _nearest_bird_distance = _max_bird_distance

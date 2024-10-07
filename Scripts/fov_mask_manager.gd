@@ -14,7 +14,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# sync sub camera and top camera
 	var _sub_cam2d : Camera2D = get_camera_2d()
 	assert(_sub_cam2d != _top_cam2d)
