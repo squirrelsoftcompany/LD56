@@ -1,0 +1,191 @@
+[gd_scene load_steps=6 format=3 uid="uid://cx11qj2svpv01"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu_UI.gd" id="1_e03tb"]
+[ext_resource type="Texture2D" uid="uid://cgjrknw2cpf5v" path="res://Sprites/Placeholder/sprite_mole.png" id="2_h0wsj"]
+[ext_resource type="Texture2D" uid="uid://byexke07gqnyk" path="res://Sprites/Placeholder/AntHive.png" id="3_n2eb6"]
+[ext_resource type="Texture2D" uid="uid://cxwgxfdrpdkns" path="res://Sprites/Placeholder/sound_ico.png" id="3_oqgdf"]
+[ext_resource type="Texture2D" uid="uid://qmfxp7r768vu" path="res://Sprites/Placeholder/BirdLeg.png" id="4_p7cxh"]
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("quitButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e03tb")
+quitButton = NodePath("QuitButton")
+
+[node name="TitleLable" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -208.0
+offset_top = 100.0
+offset_right = 208.0
+offset_bottom = 169.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "A tiny worm's life"
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 231.0
+offset_top = 85.0
+offset_right = 277.0
+offset_bottom = 116.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -613.0
+offset_top = -76.0
+offset_right = -113.0
+offset_bottom = 224.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Predators
+
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_h0wsj")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 10
+text = "Mole
+Do its life but keep your distance to not get chewed"
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="MoleSound" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+icon = ExtResource("3_oqgdf")
+expand_icon = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+texture = ExtResource("3_n2eb6")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 10
+text = "Ants
+Nibbles a piece of worm if it passes by"
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="AntSound" type="Button" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+icon = ExtResource("3_oqgdf")
+expand_icon = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+texture = ExtResource("4_p7cxh")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 10
+text = "Bird
+Beware of the surface, sharp beak"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="BirdSound" type="Button" parent="VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+icon = ExtResource("3_oqgdf")
+expand_icon = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.242188, 0.176621, 0.0983762, 1)
+
+[node name="SelectionSound" type="AudioStreamPlayer" parent="."]
+
+[node name="Mole" type="AudioStreamPlayer" parent="."]
+
+[node name="Ant" type="AudioStreamPlayer" parent="."]
+
+[node name="Bird" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
