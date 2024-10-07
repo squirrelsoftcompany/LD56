@@ -75,10 +75,11 @@ func _ready():
 	z_index = 1000
 
 func _process(delta):
-	_process_primitives(rects, delta)
-	_process_primitives(circle_arcs, delta)
-	_process_primitives(lines, delta)
-	queue_redraw()
+	if Engine.is_editor_hint() and not ProjectSettings.get_setting("DebugDraw2D/disable_debug_draw_in_editor"):
+		_process_primitives(rects, delta)
+		_process_primitives(circle_arcs, delta)
+		_process_primitives(lines, delta)
+		queue_redraw()
 
 func _process_primitives(primitives, delta):
 	var indices_to_remove = []
@@ -91,9 +92,10 @@ func _process_primitives(primitives, delta):
 		primitives.remove_at(indices_to_remove[i])
 
 func _draw():
-	_draw_primitives(rects)
-	_draw_primitives(circle_arcs)
-	_draw_primitives(lines)
+	if Engine.is_editor_hint() and not ProjectSettings.get_setting("DebugDraw2D/disable_debug_draw_in_editor"):
+		_draw_primitives(rects)
+		_draw_primitives(circle_arcs)
+		_draw_primitives(lines)
 
 func _draw_primitives(primitives):
 	for primitive in primitives:

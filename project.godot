@@ -21,6 +21,10 @@ PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_came
 MapGenerator="*res://Scripts/map_generator.gd"
 DebugDraw2D="*res://addons/debugdraw2d/DebugDraw2D.gd"
 
+[debug_draw_2d]
+
+disable_debug_draw_in_editor=false
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/debugdraw2d/plugin.cfg", "res://addons/linepath2d/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
