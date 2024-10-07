@@ -12,7 +12,7 @@ texture_repeat = 2
 position = Vector2(0, -820)
 texture = ExtResource("1_ox4w6")
 region_enabled = true
-region_rect = Rect2(0, 0, 2000, 150)
+region_rect = Rect2(0, 0, 6000, 150)
 script = ExtResource("2_bc2os")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

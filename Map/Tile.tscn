@@ -30,4 +30,3 @@ texture = SubResource("GradientTexture2D_5whyq")
 scale = Vector2(3, 1)
 
 [node name="SpriteCourt" parent="." instance=ExtResource("4_1farg")]
-scale = Vector2(3, 1)
