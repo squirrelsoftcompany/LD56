@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var worm_attack_distance := 150
 @export var next_target_distance := 30
 @export var random_position_radius := 500
+@export var attack_angle := 15
 @export var time_out := 15
 
 var _worm_head : Node2D
@@ -67,7 +68,7 @@ func _process(delta: float) -> void:
 				state = MoleState.NEXT_RANDOM_TARGET
 		MoleState.TARGETING:
 			_timer = 0
-			_current_target_position = worm_position
+			_current_target_position = _compute_predict_worm_position()
 			debug_color = Color(0, 0, 1)
 			# next state ?
 			if worm_distance > worm_max_distance:
@@ -94,3 +95,14 @@ func _process(delta: float) -> void:
 	var forward := WormController._get_forward_from_rotation(rotation)
 	velocity = forward * max_forward_speed
 	move_and_slide()
+
+
+func _compute_predict_worm_position() -> Vector2:
+	var _mole_to_worm_vector := _worm_head.position - global_position
+	var _mole_to_worm_vector_magnitude := _mole_to_worm_vector.length()
+	var _worm_forward := WormController._get_forward_from_rotation(_worm_head.rotation)
+	var _mole_direction_sign = sign(_worm_forward.dot(_mole_to_worm_vector.rotated(deg_to_rad(90))))
+	
+	# Adding a positive angle to the node rotation causes it to turn counter-clockwise (on the "left")
+	var _attack_vector :=_mole_to_worm_vector.rotated(deg_to_rad(_mole_direction_sign * attack_angle))
+	return global_position + _attack_vector

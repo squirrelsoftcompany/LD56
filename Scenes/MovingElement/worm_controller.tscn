@@ -16,21 +16,22 @@ position = Vector2(-210, 330)
 collision_mask = 14
 floor_constant_speed = true
 script = ExtResource("1_44qbw")
-max_rotation_speed_in_degrees = 60
+max_rotation_speed_in_degrees = 80
 max_forward_speed = 50
 food_detector = NodePath("FoodDetector")
 
-[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("food_sound")]
+[node name="Mouth" type="Area2D" parent="." node_paths=PackedStringArray("food_sound")]
 collision_mask = 44
 script = ExtResource("2_mhdyn")
 food_sound = NodePath("EatSound")
+point_by_food = 10
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mouth"]
 position = Vector2(-7.5, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_8ltyw")
 
-[node name="EatSound" type="AudioStreamPlayer" parent="Area2D"]
+[node name="EatSound" type="AudioStreamPlayer" parent="Mouth"]
 stream = ExtResource("3_ynta3")
 bus = &"Sfx"
 
@@ -50,5 +51,5 @@ collision_mask = 32
 [node name="Shape" type="CollisionShape2D" parent="FoodDetector"]
 shape = SubResource("CircleShape2D_yqukb")
 
-[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="area_entered" from="Mouth" to="Mouth" method="_on_area_entered"]
 [connection signal="area_entered" from="FoodDetector" to="." method="_on_food_detector_area_entered"]
