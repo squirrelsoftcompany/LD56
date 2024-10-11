@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bt41pt4ehgw8x"]
+[gd_scene load_steps=20 format=3 uid="uid://bt41pt4ehgw8x"]
 
 [ext_resource type="Texture2D" uid="uid://cgjrknw2cpf5v" path="res://Sprites/Placeholder/sprite_mole.png" id="1_74dby"]
 [ext_resource type="Script" path="res://Scripts/mole_controller.gd" id="1_ng6xw"]
@@ -8,6 +8,70 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5mwwf"]
 radius = 89.0
 height = 418.0
+
+[sub_resource type="Gradient" id="Gradient_7xl5m"]
+offsets = PackedFloat32Array(0.614679, 0.788991, 1)
+colors = PackedColorArray(0.305882, 0.258824, 0.258824, 1, 0.294644, 0.253471, 0.253471, 1, 0.253906, 0.23407, 0.23407, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_q1nsb"]
+gradient = SubResource("Gradient_7xl5m")
+fill = 1
+fill_from = Vector2(0.521368, 0.495726)
+fill_to = Vector2(0.15812, 0.465812)
+
+[sub_resource type="Gradient" id="Gradient_5mu7n"]
+offsets = PackedFloat32Array(0.598592, 0.84507, 0.873239, 0.908451, 1)
+colors = PackedColorArray(0.301961, 0.258824, 0.254902, 1, 0.364608, 0.319904, 0.324336, 1, 0.419282, 0.373211, 0.384934, 1, 0.464844, 0.417633, 0.435431, 1, 0.785156, 0.660952, 0.729068, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7v00t"]
+gradient = SubResource("Gradient_5mu7n")
+fill = 1
+fill_from = Vector2(0.15534, 0.495146)
+fill_to = Vector2(1, 0.432039)
+
+[sub_resource type="Gradient" id="Gradient_cnbpp"]
+offsets = PackedFloat32Array(0.220183, 0.272936, 0.305046, 0.352113, 0.690367, 0.720183, 0.760563, 0.929577)
+colors = PackedColorArray(0, 0, 0, 1, 0.0924277, 0.0924277, 0.0924277, 1, 0.367188, 0.367188, 0.367188, 1, 0.125086, 0.125086, 0.125086, 1, 0.0459878, 0.0459878, 0.0459878, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5fqaq"]
+gradient = SubResource("Gradient_cnbpp")
+fill = 1
+fill_from = Vector2(0.271845, 0.800971)
+fill_to = Vector2(0.436893, 0.553398)
+
+[sub_resource type="Gradient" id="Gradient_kbrt8"]
+offsets = PackedFloat32Array(0, 0.353211, 0.369266, 0.479358, 0.493119, 0.610092, 0.731651)
+colors = PackedColorArray(0.136719, 0.110016, 0.117252, 1, 0.227799, 0.188102, 0.192999, 1, 0.269379, 0.22375, 0.227579, 1, 0.352539, 0.295047, 0.296738, 1, 0.411939, 0.345972, 0.346138, 1, 0.462496, 0.389317, 0.388184, 1, 1, 0.850138, 0.835195, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ji7fe"]
+gradient = SubResource("Gradient_kbrt8")
+fill = 1
+fill_from = Vector2(0, 0.149573)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Curve" id="Curve_g2y12"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.196281, 0.8698), 0.0, 0.0, 0, 0, Vector2(0.613636, 0.774653), 0.0, 0.0, 0, 0, Vector2(0.834711, 0.669492), -1.10055, -1.10055, 0, 0, Vector2(1, 0.574345), -0.827482, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Gradient" id="Gradient_1b7ix"]
+offsets = PackedFloat32Array(0.555046, 0.977064, 1)
+colors = PackedColorArray(0.305882, 0.258824, 0.258824, 1, 0.390625, 0.359503, 0.365369, 1, 0.380032, 0.346918, 0.352051, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qmfu5"]
+gradient = SubResource("Gradient_1b7ix")
+fill = 1
+fill_from = Vector2(0.277778, 0.504274)
+fill_to = Vector2(0.965812, 0.521368)
+
+[sub_resource type="Gradient" id="Gradient_xlvli"]
+offsets = PackedFloat32Array(0.555046, 0.977064, 1)
+colors = PackedColorArray(0.25098, 0.231373, 0.231373, 1, 0.390625, 0.359503, 0.365369, 1, 0.380032, 0.346918, 0.352051, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xy4hq"]
+gradient = SubResource("Gradient_xlvli")
+fill = 1
+fill_from = Vector2(0.277778, 0.504274)
+fill_to = Vector2(0.965812, 0.521368)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qlbac"]
 radius = 71.0634
@@ -27,7 +91,118 @@ position = Vector2(-100, 0)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_5mwwf")
 
+[node name="Body" type="Polygon2D" parent="CollisionShape2D"]
+position = Vector2(0.420456, -1.52588e-05)
+scale = Vector2(1.00478, 1)
+texture = SubResource("GradientTexture2D_q1nsb")
+polygon = PackedVector2Array(0, -228, 5, -205, 25.0007, -201, 45.0007, -193, 69.0006, -170, 79.0005, -145, 85.0005, -129, 85.0004, -99.9997, 82.0003, -76.9997, 82.9999, 32.0003, 86.9998, 54.0003, 87.9997, 75.0003, 78.9996, 99.0003, 62.9996, 118, 43.9995, 136, 26.9994, 165, 10.9993, 188, 0, 195, -10.999, 188, -26.999, 165, -44, 136, -63, 118, -79, 99, -88, 75, -87, 54, -83, 32, -82, -77, -85, -100, -85, -129, -79.001, -145, -69.001, -170, -45.001, -193, -25.001, -201, -5, -205)
+uv = PackedVector2Array(-2.71793, 32.2196, 0.987349, 31.4593, 1.66765, 28.2529, 2.99072, 25.0541, 6.73166, 21.2407, 7.26578, 17.0053, 11.8004, 12.6768, 19.3238, 8.1422, 29.7266, 12.5918, 37.6616, 13.2957, 41.7575, 14.8317, 44.7011, 18.2873, 47.8368, 21.2309, 49.2446, 23.6626, 49.7568, 26.4784, 50.2687, 29.678, 51.4206, 31.2138, 51.7405, 32.2376, 51.4206, 33.3255, 50.0132, 34.5429, 49.2453, 36.0787, 48.4122, 40.75, 44.2527, 44.3976, 40.7972, 45.6134, 36.7017, 48.1731, 32.9262, 49.4529, 23.7113, 54.0603, 20.8696, 55.0343, 15.8197, 52.9731, 10.6667, 48.7477, 6.47268, 43.4163, 2.82182, 39.5166, 1.57382, 36.2877, 0.968582, 33.0662)
+
+[node name="Head" type="Polygon2D" parent="CollisionShape2D/Body"]
+texture = SubResource("GradientTexture2D_7v00t")
+polygon = PackedVector2Array(0, 59, 45.9997, 71.0002, 65.9996, 113, 43.9995, 134, 11, 186, 0, 194, -11, 187, -44, 134, -66, 111, -46, 71)
+uv = PackedVector2Array(-0.0515232, 31.7428, 0.25766, -0.102571, 21.9001, 0.206039, 53.1272, 0.412728, 60.0351, 14.3222, 63.8483, 30.2965, 61.5804, 41.737, 53.851, 63.7918, 18.7053, 63.3816, -0.153028, 63.8961)
+
+[node name="EyeSocket" type="Polygon2D" parent="CollisionShape2D/Body/Head"]
+color = Color(0.226563, 0.165933, 0.160857, 1)
+polygon = PackedVector2Array(27.76, 132.03, 22.59, 132.515, 19.53, 134.425, 17.5, 136.735, 15.234, 140.195, 15.034, 143.92, 19.174, 143.305, 23.299, 141.325, 27.38, 136.18)
+
+[node name="Eye" type="Polygon2D" parent="CollisionShape2D/Body/Head/EyeSocket"]
+texture = SubResource("GradientTexture2D_5fqaq")
+polygon = PackedVector2Array(26.9995, 133, 22.9995, 134, 19.9995, 136, 17.9995, 138, 15.9995, 141, 15.9995, 143, 18.9995, 143, 22.9995, 141, 24.9995, 139, 26.9995, 136)
+uv = PackedVector2Array(64.0749, 4.08987, 40.8483, 9.9264, 23.3391, 21.5991, 11.6663, 33.2717, -0.00650787, 50.7809, -0.00655174, 62.4536, 17.5026, 62.4536, 40.8481, 50.781, 52.5209, 39.1083, 64.1938, 21.5992)
+
+[node name="EyeSocket2" type="Polygon2D" parent="CollisionShape2D/Body/Head"]
+color = Color(0.226563, 0.165933, 0.160857, 1)
+polygon = PackedVector2Array(-27.76, 132.03, -22.59, 132.515, -19.53, 134.425, -17.5, 136.735, -15.234, 140.195, -15.034, 143.92, -19.174, 143.305, -23.299, 141.325, -27.38, 136.18)
+
+[node name="Eye2" type="Polygon2D" parent="CollisionShape2D/Body/Head/EyeSocket2"]
+texture = SubResource("GradientTexture2D_5fqaq")
+polygon = PackedVector2Array(-27, 133, -23, 134, -20, 136, -18, 138, -15.999, 141, -15.999, 143, -18.999, 143, -22.999, 141, -24.999, 139, -27, 136)
+uv = PackedVector2Array(64.0749, 4.08987, 40.8483, 9.9264, 23.3391, 21.5991, 11.6663, 33.2717, -0.00650787, 50.7809, -0.00655174, 62.4536, 17.5026, 62.4536, 40.8481, 50.781, 52.5209, 39.1083, 64.1938, 21.5992)
+
+[node name="Arm(Buff)" type="Node2D" parent="CollisionShape2D/Body"]
+
+[node name="Polygon2D" type="Polygon2D" parent="CollisionShape2D/Body/Arm(Buff)"]
+position = Vector2(-31.2712, 51.9999)
+rotation = -0.357792
+texture = SubResource("GradientTexture2D_ji7fe")
+polygon = PackedVector2Array(135.93, 92.0005, 148.868, 85.0006, 157.825, 71.0006, 156.83, 51.0006, 152.849, 69.0006, 145.882, 80.0005, 134.935, 85.0005, 133.939, 82.0005, 143.892, 76.0005, 149.863, 67.0006, 149.863, 50.0006, 145.882, 66.0005, 140.906, 73.0005, 131.949, 78.0005, 139.911, 71.0005, 144.887, 62.0005, 143.892, 49.0005, 141.901, 61.0005, 135.93, 70.0005, 127.968, 78.0005)
+uv = PackedVector2Array(18.5465, 65.6948, 38.4003, 54.9533, 52.1452, 33.4703, 50.6181, 2.78008, 44.5092, 30.4012, 33.8186, 47.2808, 17.0193, 54.9532, 15.4921, 50.3497, 30.7643, 41.1427, 39.9276, 27.3322, 39.9277, 1.24553, 33.8187, 25.7976, 26.1826, 36.5392, 12.4377, 44.2117, 24.6554, 33.4701, 32.2915, 19.6596, 30.7644, -0.289013, 27.7099, 18.1251, 18.5466, 31.9356, 6.32887, 44.2116)
+
+[node name="Line2D" type="Line2D" parent="CollisionShape2D/Body/Arm(Buff)"]
+points = PackedVector2Array(86.1675, 91.0003, 94.1294, 99.0004, 108.063, 102, 117.02, 90.0004)
+width = 40.0
+width_curve = SubResource("Curve_g2y12")
+texture = SubResource("GradientTexture2D_qmfu5")
+texture_mode = 2
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Leg" type="Node2D" parent="CollisionShape2D/Body"]
+
+[node name="Polygon2D" type="Polygon2D" parent="CollisionShape2D/Body/Leg"]
+position = Vector2(-4.39878, -182)
+rotation = -0.511381
+scale = Vector2(0.7, 0.7)
+texture = SubResource("GradientTexture2D_ji7fe")
+polygon = PackedVector2Array(136.836, 93.1707, 146.847, 84.0458, 149.42, 70.7461, 144.368, 82.6542, 136.453, 88.0417, 136.612, 84.8542, 142.587, 80.0168, 145.159, 66.7171, 140.806, 77.3794, 132.892, 82.7668, 131.111, 80.1294, 139.026, 74.742, 141.44, 64.6297, 136.546, 73.3504, 128.632, 78.7378)
+uv = PackedVector2Array(20.8798, 66.4517, 41.2291, 49.1764, 47.2177, 23.1636, 36.4422, 46.264, 20.4825, 56.3245, 21.0155, 50.0585, 33.1185, 40.9465, 39.1071, 14.9338, 29.7948, 35.6291, 13.8351, 45.6897, 10.5115, 40.3723, 26.4711, 30.3118, 31.9267, 10.565, 21.6842, 27.3992, 5.72457, 37.4598)
+
+[node name="Line2D" type="Line2D" parent="CollisionShape2D/Body/Leg"]
+points = PackedVector2Array(77.2111, -140, 97.1161, -146, 104.083, -170)
+width = 30.0
+width_curve = SubResource("Curve_g2y12")
+texture = SubResource("GradientTexture2D_xy4hq")
+texture_mode = 2
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Leg2" type="Node2D" parent="CollisionShape2D/Body"]
+scale = Vector2(-1, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="CollisionShape2D/Body/Leg2"]
+position = Vector2(-4.39878, -182)
+rotation = -0.511381
+scale = Vector2(0.7, 0.7)
+texture = SubResource("GradientTexture2D_ji7fe")
+polygon = PackedVector2Array(136.836, 93.1707, 146.847, 84.0458, 149.42, 70.7461, 144.368, 82.6542, 136.453, 88.0417, 136.612, 84.8542, 142.587, 80.0168, 145.159, 66.7171, 140.806, 77.3794, 132.892, 82.7668, 131.111, 80.1294, 139.026, 74.742, 141.44, 64.6297, 136.546, 73.3504, 128.632, 78.7378)
+uv = PackedVector2Array(20.8798, 66.4517, 41.2291, 49.1764, 47.2177, 23.1636, 36.4422, 46.264, 20.4825, 56.3245, 21.0155, 50.0585, 33.1185, 40.9465, 39.1071, 14.9338, 29.7948, 35.6291, 13.8351, 45.6897, 10.5115, 40.3723, 26.4711, 30.3118, 31.9267, 10.565, 21.6842, 27.3992, 5.72457, 37.4598)
+
+[node name="Line2D" type="Line2D" parent="CollisionShape2D/Body/Leg2"]
+points = PackedVector2Array(77.2111, -140, 97.1161, -146, 104.083, -170)
+width = 30.0
+width_curve = SubResource("Curve_g2y12")
+texture = SubResource("GradientTexture2D_xy4hq")
+texture_mode = 2
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Arm(Buff)2" type="Node2D" parent="CollisionShape2D/Body"]
+scale = Vector2(-1, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="CollisionShape2D/Body/Arm(Buff)2"]
+position = Vector2(-31.2712, 51.9999)
+rotation = -0.357792
+texture = SubResource("GradientTexture2D_ji7fe")
+polygon = PackedVector2Array(135.93, 92.0005, 148.868, 85.0006, 157.825, 71.0006, 156.83, 51.0006, 152.849, 69.0006, 145.882, 80.0005, 134.935, 85.0005, 133.939, 82.0005, 143.892, 76.0005, 149.863, 67.0006, 149.863, 50.0006, 145.882, 66.0005, 140.906, 73.0005, 131.949, 78.0005, 139.911, 71.0005, 144.887, 62.0005, 143.892, 49.0005, 141.901, 61.0005, 135.93, 70.0005, 127.968, 78.0005)
+uv = PackedVector2Array(18.5465, 65.6948, 38.4003, 54.9533, 52.1452, 33.4703, 50.6181, 2.78008, 44.5092, 30.4012, 33.8186, 47.2808, 17.0193, 54.9532, 15.4921, 50.3497, 30.7643, 41.1427, 39.9276, 27.3322, 39.9277, 1.24553, 33.8187, 25.7976, 26.1826, 36.5392, 12.4377, 44.2117, 24.6554, 33.4701, 32.2915, 19.6596, 30.7644, -0.289013, 27.7099, 18.1251, 18.5466, 31.9356, 6.32887, 44.2116)
+
+[node name="Line2D" type="Line2D" parent="CollisionShape2D/Body/Arm(Buff)2"]
+points = PackedVector2Array(86.1675, 91.0003, 94.1294, 99.0004, 108.063, 102, 117.02, 90.0004)
+width = 40.0
+width_curve = SubResource("Curve_g2y12")
+texture = SubResource("GradientTexture2D_qmfu5")
+texture_mode = 2
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
 [node name="SpriteMole" type="Sprite2D" parent="."]
+visible = false
 z_index = 1
 position = Vector2(-100, 0)
 rotation = 1.5708
