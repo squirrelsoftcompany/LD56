@@ -28,7 +28,7 @@ func _process(_delta):
 	var dist : float = (global_position - last_pos).length()
 	if dist > width * 5:
 		gallery._curve = Curve2D.new()
-	if dist > width:
+	if dist > width/2:
 		gallery.curve.add_point(global_position)
 		last_pos = global_position
 		if gallery.curve.point_count > 32:
