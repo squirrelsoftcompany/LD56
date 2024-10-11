@@ -1,22 +1,30 @@
-[gd_scene load_steps=11 format=3 uid="uid://cefracuibowbm"]
+[gd_scene load_steps=14 format=3 uid="uid://cefracuibowbm"]
 
 [ext_resource type="PackedScene" uid="uid://c8vq54nywemk5" path="res://Scenes/Camera/fov.tscn" id="1_c7ibn"]
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="1_uswxo"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_ajfba"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_5gytp"]
 [ext_resource type="PackedScene" uid="uid://png6f8xxnfrf" path="res://Map/Map.tscn" id="7_drgsk"]
-[ext_resource type="PackedScene" path="res://Scenes/SoundController.tscn" id="8_686k5"]
-[ext_resource type="PackedScene" path="res://assets/VFX/world_environment.tscn" id="9_1tfr2"]
+[ext_resource type="PackedScene" uid="uid://bmaxtsl24lset" path="res://Scenes/SoundController.tscn" id="8_686k5"]
+[ext_resource type="PackedScene" uid="uid://7qe3rw60hs41" path="res://assets/VFX/world_environment.tscn" id="9_1tfr2"]
 [ext_resource type="PackedScene" uid="uid://c2qpkirs2uam5" path="res://Scenes/MovingElement/worm_controller.tscn" id="9_ixjsp"]
 [ext_resource type="PackedScene" uid="uid://bry30wt416xid" path="res://Scenes/HungryBird/hungry_bird.tscn" id="9_stxcb"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="9_uljwb"]
 [ext_resource type="PackedScene" uid="uid://pgximhvppys1" path="res://Scenes/UI/in_game_ui.tscn" id="10_tvjpu"]
 [ext_resource type="PackedScene" uid="uid://bwnvianc6ysa" path="res://Scenes/Camera/fov_mask.tscn" id="15_iuhcr"]
 
+[sub_resource type="Resource" id="Resource_v7lyb"]
+script = ExtResource("4_5gytp")
+duration = 1.0
+transition = 0
+ease = 2
+
 [node name="Main" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-physics_interpolation_mode = 1
+physics_interpolation_mode = 2
 position = Vector2(-210, 330)
-zoom = Vector2(0.4, 0.4)
+zoom = Vector2(0.25, 0.25)
 script = ExtResource("1_uswxo")
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
@@ -42,3 +50,16 @@ ground_level = -750.0
 [node name="WorldEnvironment" parent="." instance=ExtResource("9_1tfr2")]
 
 [node name="InGameUI" parent="." instance=ExtResource("10_tvjpu")]
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_targets")]
+position = Vector2(-210, 330)
+script = ExtResource("3_ajfba")
+priority = 10
+follow_mode = 3
+follow_targets = [null]
+zoom = Vector2(0.25, 0.25)
+tween_resource = SubResource("Resource_v7lyb")
+tween_on_load = false
+follow_damping = true
+
+[editable path="WormController"]
