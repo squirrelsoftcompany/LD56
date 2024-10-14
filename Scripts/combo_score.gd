@@ -15,7 +15,7 @@ var score := 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	current_score = MapGenerator.worm.length
+	current_score = MapGenerator.worm.score
 	MapGenerator.worm_scored.connect(new_score)
 
 

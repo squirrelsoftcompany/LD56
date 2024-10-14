@@ -20,7 +20,7 @@ func _process(_delta: float) -> void:
 
 
 func game_over():
-	$GAME_OVER.text = _format.replace(placeholder_string, "%010d" % MapGenerator.worm.length)
+	$GAME_OVER.text = _format.replace(placeholder_string, "%010d" % MapGenerator.worm.score)
 	$GAME_OVER.visible = true
 	$ButtonContainer.visible = true
 

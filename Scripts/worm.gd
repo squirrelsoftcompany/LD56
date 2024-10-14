@@ -13,6 +13,7 @@ var _valid_hit : bool = false # for simultateous hits
 var environment : Environment
 var dead : bool = false
 var death_timer : float = 0
+var score := 0
 
 @export var start_width : float = 50
 @export var length : float = 300
@@ -94,7 +95,9 @@ func update_nerves() :
 
 func add_to_lenght(increment : float):
 	length = length + increment
-	MapGenerator.worm_scored.emit(length)
+	@warning_ignore("narrowing_conversion")
+	score += increment * 1000
+	MapGenerator.worm_scored.emit(score)
 	pass
 
 func update_post_fx():
