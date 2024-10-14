@@ -14,13 +14,13 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func show_indicator(indicator_global_position : Vector2):
 	indicator.global_position = indicator_global_position
 	indicator.look_at(global_position)
-	indicator.scale.x
+	#indicator.scale.x
 	
 	# Change scale if near
 	var _distance = (indicator_global_position - global_position).length() 
