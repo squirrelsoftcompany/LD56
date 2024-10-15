@@ -32,8 +32,11 @@ func _process(delta: float) -> void:
 	for _food in _near_foods:
 		if is_instance_valid(_food) :
 			var _direction = _food.global_position - global_position
-			if _direction.length() < (food_detector.get_node("Shape").shape.radius) + 40 and _direction.length() > 70 :
-				_food.show_indicator(global_position + (_direction.normalized() * 30))
+			if _direction.length() < (food_detector.get_node("Shape").shape.radius) + 40 :
+				if _direction.length() > 70 :
+					_food.show_indicator(global_position + (_direction.normalized() * 30))
+				else:
+					_food.hide_indicator()
 				_tmp_near_foods.push_back(_food) 
 			else:
 				_food.hide_indicator()
@@ -55,4 +58,4 @@ static func _get_forward_from_rotation(rot : float) -> Vector2:
 func _on_food_detector_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Food"):
 		_near_foods.push_back(area.get_parent())
-	pass # Replace with function body.
+	pass

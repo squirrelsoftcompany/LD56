@@ -17,6 +17,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
+
 func show_indicator(indicator_global_position : Vector2):
 	indicator.global_position = indicator_global_position
 	indicator.look_at(global_position)
@@ -32,8 +33,7 @@ func show_indicator(indicator_global_position : Vector2):
 		indicator.scale.y = min_scale
 		
 	indicator.visible = true
-	pass
+	
 	
 func hide_indicator():
 	indicator.visible = false
-	pass
