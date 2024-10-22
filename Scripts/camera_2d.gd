@@ -6,18 +6,17 @@ extends Camera2D
 @onready var worm : Node2D =$"../WormController/Worm"
  
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	position = get_tree().get_first_node_in_group("WormHead").position
+#func _ready() -> void:
+	#position = get_tree().get_first_node_in_group("WormHead").position
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	position = get_tree().get_first_node_in_group("WormHead").position
+func _process(_delta: float) -> void:
+	#position = get_tree().get_first_node_in_group("WormHead").position
+	var head_pos : Vector2 = get_tree().get_first_node_in_group("WormHead").position
 	
 	# zoom
 	var bodies : Array[Node] = get_tree().get_nodes_in_group("WormBody")
-	var worm_pos : Vector2 = bodies[0].global_position
-	var worm_width : float = bodies[0].start_width
 	#var distance_needed : float = 0.0
 	#for body : Node2D in bodies :
 		#DebugDraw2D.rect_filled(body.global_position, Vector2(10,10), Color.WHITE, delta)
@@ -25,10 +24,10 @@ func _process(delta: float) -> void:
 		#if current_distance > distance_needed:
 			#distance_needed = current_distance
 	#distance_needed = distance_needed * 2 + worm_width*4 * 2
-	var top : float =bodies[0].global_position.y
-	var bot : float =bodies[0].global_position.y
-	var left : float =bodies[0].global_position.x
-	var right : float =bodies[0].global_position.x
+	var top : float = head_pos.y - (worm.length/head_margin)
+	var bot : float =head_pos.y + (worm.length/head_margin)
+	var left : float =head_pos.x - (worm.length/head_margin)
+	var right : float =head_pos.x + (worm.length/head_margin)
 	phantom.follow_targets.clear()
 	for body in bodies:
 		phantom.append_follow_targets(body)
@@ -40,14 +39,6 @@ func _process(delta: float) -> void:
 			left = body.global_position.x
 		elif body.global_position.x > right:
 			right = body.global_position.x
-	if worm.global_position.y - (worm.length/head_margin) < top:
-		top = worm.global_position.y - (worm.length/head_margin)
-	elif worm.global_position.y + (worm.length/head_margin) > bot:
-		bot = worm.global_position.y + (worm.length/head_margin)
-	if worm.global_position.x - (worm.length/head_margin) < left:
-		left = worm.global_position.x - (worm.length/head_margin)
-	elif worm.global_position.x + (worm.length/head_margin) > right:
-		right = worm.global_position.x + (worm.length/head_margin)
 	var height : float = bot - top + 25
 	var width : float = right - left + 25
 	var needed_ratio : float = width/height

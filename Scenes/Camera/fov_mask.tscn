@@ -10,12 +10,13 @@ _data = {
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_3dy8g"]
+bake_resolution = 1
 _data = [Vector2(0.205263, 1), 0.0, 0.0, 0, 0]
 point_count = 1
 
 [sub_resource type="Gradient" id="Gradient_lx8uc"]
 offsets = PackedFloat32Array(0.753521, 0.852113, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.857143, 0.857143, 0.857143, 0.857143, 0, 0, 0, 0)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.857143, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_3n6xg"]
 gradient = SubResource("Gradient_lx8uc")
@@ -48,3 +49,4 @@ fill_texture_mode = 2
 cap_joint_mode = 2
 cap_begin_cap = 1
 cap_end_cap = 2
+border_antialiased = true
